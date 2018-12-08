@@ -14,6 +14,7 @@ class App extends Component {
     }
     this.state = {
       loggedIn: token ? true : false,
+      loggedOut: token ? false: true,
       nowPlaying: { song: '💩', albumCover: '', artist: '🔮', time: '', user:''}
     }
   }
@@ -62,14 +63,16 @@ getNowPlaying(){
           <h3>Now Playing: <span className='title'>{this.state.nowPlaying.song }</span></h3>
           <h3>Artist:<span className='title'>{this.state.nowPlaying.artists }</span></h3>
           {/*<h3>time:<span className='title'>{this.state.nowPlaying.time } seconds</span></h3>*/}
-          <h3>device being used:<span className='title'>{this.state.nowPlaying.user }</span></h3>
+          <h3>device:<span className='title'>{this.state.nowPlaying.user }</span></h3>
           <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>
         </div>
 <div id='demo'></div>
         </div>
+          { this.state.loggedOut &&
         <a href="http://localhost:8888">
           <button className='btn btn-outline-info'>Go to Spotify</button>
           </a>
+        }
         { this.state.loggedIn &&
         <button className='btn btn-outline-info' onClick={() => setInterval(this.getNowPlaying(),1000)}>
           Check Now Playing
