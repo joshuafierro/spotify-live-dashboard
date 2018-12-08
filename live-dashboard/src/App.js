@@ -57,16 +57,16 @@ getNowPlaying(){
 
   render() {
     return (
-      <div className="App">
+      <div className="App" onload={this.getNowPlaying()}>
         <div className='row'>
         <div className='info col-md-12 animated fadeIn'>
-          <h3>Now Playing: <span className='title'>{this.state.nowPlaying.song }</span></h3>
-          <h3>Artist:<span className='title'>{this.state.nowPlaying.artists }</span></h3>
+          { this.state.loggedIn && <h3><span className='title2'>{this.state.nowPlaying.user } is listening to:</span></h3>}
+          { this.state.loggedIn && <h3><span className='title'>{this.state.nowPlaying.song }</span></h3>}
+          { this.state.loggedIn && <h3><span className='title2'>{this.state.nowPlaying.artists }</span></h3>}
           {/*<h3>time:<span className='title'>{this.state.nowPlaying.time } seconds</span></h3>*/}
-          <h3>device:<span className='title'>{this.state.nowPlaying.user }</span></h3>
-          <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>
+          { this.state.loggedIn && <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>}
         </div>
-<div id='demo'></div>
+          <div id='demo'></div>
         </div>
           { this.state.loggedOut &&
         <a href="http://localhost:8888">
