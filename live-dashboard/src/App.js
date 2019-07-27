@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
+import LiveDash from './spotify-live-dashboard.js'
 
 const spotifyWebApi = new Spotify();
+const liveDash = new LiveDash();
 
 class App extends Component {
   constructor(){
@@ -61,9 +63,9 @@ getNowPlaying(){
         <div className="App" onload={this.getNowPlaying()}>
           <div className='row'>
             <div className='info col-md-12 animated fadeIn'>
-              { this.state.loggedIn && <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>}
-              { this.state.loggedIn && <h5><span className='title'>{this.state.nowPlaying.song }</span> - <span className='title2'>{this.state.nowPlaying.artist }</span></h5>}
-              { this.state.loggedIn && <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>}
+              <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>
+              <h6><span className='title'>{this.state.nowPlaying.song }</span> - <span className='title2'>{this.state.nowPlaying.artist }</span></h6>
+              <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>
             <div id='demo'></div>
             <button className='btn btn-outline-info' onClick={() => setInterval(this.getNowPlaying(),1000)}>
           Check Now Playing
@@ -71,7 +73,6 @@ getNowPlaying(){
           </div>
         </div>
       </div>
-
       )
     }
   }
