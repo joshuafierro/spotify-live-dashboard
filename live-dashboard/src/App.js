@@ -60,7 +60,7 @@ getNowPlaying(){
     }
     else{
       return (
-        <div className="App" onload={this.getNowPlaying()}>
+        <div className="App" onLoad={this.getNowPlaying()}>
           <div className='row'>
             <div className='info col-md-12 animated fadeIn'>
               <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>
