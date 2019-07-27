@@ -40,7 +40,6 @@ getNowPlaying(){
               albumCover: response.item.album.images[0].url,
               artist: response.item.artists[0].name,
               song: response.item.name,
-              time: ((response.progress_ms/1000)).toString(),
               user: response.device.name
             }
         });
@@ -67,7 +66,7 @@ getNowPlaying(){
               <h6><span className='title'>{this.state.nowPlaying.song }</span> - <span className='title2'>{this.state.nowPlaying.artist }</span></h6>
               <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>
             <div id='demo'></div>
-            <button className='btn btn-outline-info' onClick={() => setInterval(this.getNowPlaying(),1000)}>
+            <button className='btn btn-outline-info' onClick={this.getNowPlaying()}>
           Check Now Playing
             </button>
           </div>
