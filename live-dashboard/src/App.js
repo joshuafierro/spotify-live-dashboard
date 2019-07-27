@@ -36,7 +36,8 @@ getNowPlaying(){
           nowPlaying: {
               song: response.item.name,
               albumCover: response.item.album.images[0].url,
-              artist: response.item.artists.name,
+              artist: response.item.artists[0].name,
+              song: response.item.name,
               time: ((response.progress_ms/1000)).toString(),
               user: response.device.name
             }
@@ -60,10 +61,11 @@ getNowPlaying(){
       <div className="App" onload={this.getNowPlaying()}>
         <div className='row'>
         <div className='info col-md-12 animated fadeIn'>
-          { this.state.loggedIn && <h3><span className='title2'>{this.state.nowPlaying.user } is listening to:</span></h3>}
-          { this.state.loggedIn && <h3><span className='title'>{this.state.nowPlaying.song }</span></h3>}
-          { this.state.loggedIn && <h3><span className='title2'>{this.state.nowPlaying.artists }</span></h3>}
-          {/*<h3>time:<span className='title'>{this.state.nowPlaying.time } seconds</span></h3>*/}
+        { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
+          { this.state.loggedIn && <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>}
+          { this.state.loggedIn && <h5><span className='title'>{this.state.nowPlaying.song }</span> - <span className='title2'>{this.state.nowPlaying.artist }</span></h5>}
+          {/* { this.state.loggedIn && <h5><span className='title2'>{this.state.nowPlaying.artist }</span></h5>} */}
+          {/* <h3>time:<span className='title'>{this.state.nowPlaying.progress_ms } seconds</span></h3> */}
           { this.state.loggedIn && <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>}
         </div>
           <div id='demo'></div>

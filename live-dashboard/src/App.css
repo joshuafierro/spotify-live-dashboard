@@ -13,19 +13,23 @@ info, h1{
   text-align: center;
 }
 
-.title, .title2{
-  font-size: 1.75rem;
+.title{
+  font-size: 1.5rem;
   font-weight: bold;
   text-decoration: underline;
   text-decoration-color: #17a2b8;
 }
 
 .title2{
+  font-size: 1.5rem;
   opacity: .5;
   text-decoration: none;
 }
 
-
+.header{
+  font-size: 1.5rem;
+  background-color: #17a2b8;
+}
 
 button{
   margin:30px;
