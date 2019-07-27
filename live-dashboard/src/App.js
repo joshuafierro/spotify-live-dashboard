@@ -45,31 +45,35 @@ getNowPlaying(){
       })
   }
 
-
   render() {
-    return (
-      <div className="App" onload={this.getNowPlaying()}>
-        <div className='row'>
-        <div className='info col-md-12 animated fadeIn'>
-        { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
-          { this.state.loggedIn && <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>}
-          { this.state.loggedIn && <h5><span className='title'>{this.state.nowPlaying.song }</span> - <span className='title2'>{this.state.nowPlaying.artist }</span></h5>}
-          { this.state.loggedIn && <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>}
+    if(!this.state.loggedIn){
+      return(
+        <div className="App">
+          { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
+          <a href="http://localhost:8888">
+            <button className='btn btn-outline-info'>Go to Spotify</button>
+            </a>
         </div>
-          <div id='demo'></div>
-        </div>
-          { this.state.loggedOut &&
-        <a href="http://localhost:8888">
-          <button className='btn btn-outline-info'>Go to Spotify</button>
-          </a>
-        }
-        { this.state.loggedIn &&
-        <button className='btn btn-outline-info' onClick={() => setInterval(this.getNowPlaying(),1000)}>
+      )
+    }
+    else{
+      return (
+        <div className="App" onload={this.getNowPlaying()}>
+          <div className='row'>
+            <div className='info col-md-12 animated fadeIn'>
+              { this.state.loggedIn && <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>}
+              { this.state.loggedIn && <h5><span className='title'>{this.state.nowPlaying.song }</span> - <span className='title2'>{this.state.nowPlaying.artist }</span></h5>}
+              { this.state.loggedIn && <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>}
+            <div id='demo'></div>
+            <button className='btn btn-outline-info' onClick={() => setInterval(this.getNowPlaying(),1000)}>
           Check Now Playing
-        </button>
-      }
+            </button>
+          </div>
+        </div>
       </div>
-    );
+
+      )
+    }
   }
 }
 
