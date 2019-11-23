@@ -17,7 +17,7 @@ class App extends Component {
     this.state = {
       loggedIn: token ? true : false,
       loggedOut: token ? false: true,
-      nowPlaying: { song: '💩', albumCover: '', artist: '🔮', time: '', user:''}
+      nowPlaying: { song: '', albumCover: '', artist: '', time: '', user:''}
     }
   }
 
@@ -43,25 +43,23 @@ getNowPlaying(){
               user: response.device.name
             }
         })
-      }
-      else {
-        return(null)
       }})
   }
 
   renderDash() {
     return(
-    <div className='row'>
-      <div className='info col-md-12 animated fadeIn'>
+    <div className='row top-push info animated fadeIn'>
+      <div className='col-md-4'>
         <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>
-        <h6><span className='title'>{this.state.nowPlaying.song }</span> by <span className='title2'>{this.state.nowPlaying.artist }</span></h6>
-        <div><img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/></div>
+        <h6><span className='title'>{this.state.nowPlaying.song }</span></h6> by 
+        <h6><span className='title2'>{this.state.nowPlaying.artist }</span></h6>
+        <button className='btn btn-outline-spot' onClick={this.getNowPlaying()}>Check Now Playing</button>
+      </div>
+        <div className="col-md-8">
+          <img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/>
+          </div>
       <div id='demo'></div>
-      <button className='btn btn-outline-info' onClick={this.getNowPlaying()}>
-    Check Now Playing
-      </button>
     </div>
-</div>
     )
   }
 
@@ -70,7 +68,7 @@ getNowPlaying(){
       <div className="top-push">
         { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
         <a href="http://localhost:8888">
-          <button className='btn btn-outline-info'>Go to Spotify</button>
+          <button className='btn btn-outline-spot'>Go to Spotify</button>
           </a>
       </div>
     )

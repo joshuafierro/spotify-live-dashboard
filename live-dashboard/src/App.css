@@ -11,23 +11,24 @@ info, h1{
 
 .App {
   text-align: center;
+  margin: 10%;
 }
 
 .title{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   text-decoration: underline;
   text-decoration-color: #1DB954;
 }
 
 .title2{
-  font-size: 1.5rem;
+  font-size: 1rem;
   opacity: .5;
   text-decoration: none;
 }
 
 .header{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   /* background-color: #17a2b8; */
 }
 
@@ -49,4 +50,16 @@ button{
 
 .top-push{
   margin-top:15%;
+}
+
+.btn-outline-spot{
+  border: 2px solid #1DB954;
+  color: #1DB954;
+  background-color: transparent;
+}
+
+.btn-outline-spot:hover{
+  background-color: #1DB954;
+  color: black;
+  transition: 0.5s;
 }
