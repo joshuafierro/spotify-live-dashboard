@@ -15,20 +15,20 @@ info, h1{
 }
 
 .title{
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
   text-decoration: underline;
   text-decoration-color: #1DB954;
 }
 
 .title2{
-  font-size: 1rem;
+  font-size: 1.25rem;
   opacity: .5;
   text-decoration: none;
 }
 
 .header{
-  font-size: 1.25rem;
+  font-size: 1rem;
   /* background-color: #17a2b8; */
 }
 
