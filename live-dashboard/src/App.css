@@ -1,6 +1,6 @@
 
 body{
-  background-color: #303030;
+  background-color:black;
   color:white;
   overflow-x: hidden;
 }
@@ -17,7 +17,7 @@ info, h1{
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-color: #17a2b8;
+  text-decoration-color: #1DB954;
 }
 
 .title2{
@@ -28,7 +28,7 @@ info, h1{
 
 .header{
   font-size: 1.5rem;
-  background-color: #17a2b8;
+  /* background-color: #17a2b8; */
 }
 
 button{
@@ -44,5 +44,9 @@ button{
   width:35%;
   border-collapse: separate;
   border-spacing: 25px;
-  border:2px solid #17a2b8;
+  border:2px solid #1DB954;
+}
+
+.top-push{
+  margin-top:15%;
 }
