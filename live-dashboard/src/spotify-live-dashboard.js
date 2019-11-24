@@ -50,12 +50,26 @@ class LiveDash extends Component {
     })
   }
 
+  getTopTracks(){
+    spotifyWebApi.getMyTopTracks().then((response) => {
+        if(response){
+          let i =0;
+          for(i; i < 10; i ++){ 
+            console.log(response.items[i].name);
+            // console.log(response.items[i].artists);
+            // console.log(response.items[i].album.name);
+          }
+      }
+    })
+  }
+
   render() {
 
     return(
     <div className="row top-push">
       <div className="col-md-12">
         <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
+        <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button>
       </div>
       {!this.state.getTopArtitsts}
       <div className="col-md-12">

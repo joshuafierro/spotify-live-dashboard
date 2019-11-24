@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import NowPlayingDash from './nowPlayingDash';
-import LiveDash from './spotify-live-dashboard';
 
 class App extends Component {
   
@@ -12,7 +11,6 @@ class App extends Component {
       return(
         <div className="App">
         <NowPlayingDash/>
-          <LiveDash/>
         </div>
       )
     }

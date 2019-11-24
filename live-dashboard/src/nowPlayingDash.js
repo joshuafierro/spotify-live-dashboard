@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
+import LiveDash from './spotify-live-dashboard';
 
 const spotifyWebApi = new Spotify();
 
@@ -52,7 +53,9 @@ getNowPlaying(){
               user: response.device.name
             }
         })
-      }})
+      }}).catch((error) => {
+          console.log('an error occurred ' + error);
+      });
       console.log("################")
       console.log("PING PING PING")
       console.log("################")
@@ -70,6 +73,7 @@ renderDash() {
         <div className="col-md-8">
           <img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/>
         </div>
+        <LiveDash/>
     </div>
     )
   }
