@@ -17,7 +17,8 @@ class App extends Component {
     this.state = {
       loggedIn: token ? true : false,
       loggedOut: token ? false: true,
-      nowPlaying: { song: '', albumCover: '', artist: '', time: '', user:''}
+      nowPlaying: { song: '', albumCover: '', artist: '', user:''},
+      topArtists: { name: '', genres: '', followers: ''}
     }
   }
 
@@ -44,6 +45,9 @@ getNowPlaying(){
             }
         })
       }})
+      console.log("################")
+      console.log("PING PING PING")
+      console.log("################")
   }
 
   renderDash() {
@@ -53,12 +57,11 @@ getNowPlaying(){
         <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>
         <h6><span className='title'>{this.state.nowPlaying.song }</span></h6> by 
         <h6><span className='title2'>{this.state.nowPlaying.artist }</span></h6>
-        <button className='btn btn-outline-spot' onClick={this.getNowPlaying()}>Check Now Playing</button>
+        <button className='btn btn-outline-spot' onClick={ () => this.getNowPlaying()}>Check Now Playing</button>
       </div>
         <div className="col-md-8">
           <img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/>
           </div>
-      <div id='demo'></div>
     </div>
     )
   }
@@ -75,8 +78,11 @@ getNowPlaying(){
   }
 
   render(){
+    //Cannot call onload for getNowPlaying as 
+    // it gets called an infinte amount of times
+    //resulting in a 429 error
       return(
-        <div className="App" onLoad={this.getNowPlaying()}>
+        <div className="App">
           {this.state.loggedIn && (this.state.nowPlaying !== undefined) ?  this.renderDash() : this.renderLogIn()}
         </div>
       )
