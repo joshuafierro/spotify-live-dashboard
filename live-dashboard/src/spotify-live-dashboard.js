@@ -1,41 +1,59 @@
 /*spotify dashboard api*/
 import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js';
-import axios from 'axios';
+// import axios from 'axios';
 
 const spotifyWebApi = new Spotify();
 
 class LiveDash extends Component {
-
-  state = {
-    favArtists: []
+  constructor(){
+    super();
+    this.state ={
+    topArtists: { name: '', images: '', followers: ''}
+    }
   }
 
-  
-     getNowPlaying = () => {
-        spotifyWebApi.getMyCurrentPlaybackState()
-          .then((response) => {
-            this.setState({
-              nowPlaying: {
-                  song: response.item.name,
-                  albumCover: response.item.album.images[0].url,
-                  artist: response.item.artists[0].name,
-                  song: response.item.name,
-                  time: ((response.progress_ms/1000)).toString(),
-                  user: response.device.name
-                }
-            });
+  getTopArtitsts(){
+    spotifyWebApi.getMyTopArtists().then((response)=>{
+      if(response){
+        let i =0
+        for(i; i<10; i ++){
+          this.setState({
+            topArtists: {
+              name: response.items[0].name,
+              images:response.items[0].images[0].url,
+              followers: response.items[0].followers.total
+            }
           })
+        }
       }
-
-      componentDidMount(){
-        axios.get('https://api.spotify.com/v1/me/top/{artists}')
-        .then(res => {
-          const favArtists = res.data;
-          this.setState(favArtists({favArtists}))
-          console.log(favArtists);
-        })
+      console.log(response);
+      let i = 0;
+      for(i; i < 10; i ++) {
+        console.log(response.items[i].name);
+        console.log(response.items[i].followers.total);
       }
-    }
+      
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
 
-    export default LiveDash;
+  render() {
+
+    return(
+    <div className="row top-push">
+      <div className="col-md-12">
+        <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
+      </div>
+      {!this.state.getTopArtitsts}
+      <div className="col-md-12">
+        <img className="artistProfile" alt="artist profile" src={this.state.topArtists.images}/>
+        <h2>{this.state.topArtists.name}</h2>
+        <h2>{this.state.topArtists.followers}</h2>
+      </div>
+    </div>
+    )
+  }
+}
+  export default LiveDash;

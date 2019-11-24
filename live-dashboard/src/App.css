@@ -63,3 +63,8 @@ button{
   color: black;
   transition: 0.5s;
 }
+
+.artistProfile{
+  width: 15%;
+  border: 2px solid #1DB954;
+}

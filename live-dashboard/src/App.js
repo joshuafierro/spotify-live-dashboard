@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
-// import LiveDash from './spotify-live-dashboard.js'
+import LiveDash from './spotify-live-dashboard.js'
 
 const spotifyWebApi = new Spotify();
-// const liveDash = new LiveDash();
 
 class App extends Component {
   constructor(){
@@ -18,7 +17,7 @@ class App extends Component {
       loggedIn: token ? true : false,
       loggedOut: token ? false: true,
       nowPlaying: { song: '', albumCover: '', artist: '', user:''},
-      topArtists: { name: '', genres: '', followers: ''}
+      topArtists: { name: '', images: '', followers: ''}
     }
   }
 
@@ -61,7 +60,9 @@ getNowPlaying(){
       </div>
         <div className="col-md-8">
           <img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/>
-          </div>
+        </div>
+        {/* //top artists section */}
+       <LiveDash />
     </div>
     )
   }
