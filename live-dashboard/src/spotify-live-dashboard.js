@@ -9,7 +9,9 @@ class LiveDash extends Component {
   constructor(){
     super();
     this.state ={
-    topArtists: { name: '', images: '', followers: ''}
+    topArtists: { name: '', images: '', followers: ''},
+    topTracks: {name: '', album: ''}
+    
     }
   }
 
@@ -55,6 +57,13 @@ class LiveDash extends Component {
         if(response){
           let i =0;
           for(i; i < 10; i ++){ 
+          this.setState({
+            topTracks: {
+              name: response.items[0].name,
+              // images:response.items[0].images[0].url,
+              album: response.items[0].album.name,
+            }
+          })
             console.log(response.items[i].name);
             // console.log(response.items[i].artists);
             // console.log(response.items[i].album.name);
@@ -76,6 +85,9 @@ class LiveDash extends Component {
         <img className="artistProfile" alt="artist profile" src={this.state.topArtists.images}/>
         <h2>{this.state.topArtists.name}</h2>
         <h2>{this.state.topArtists.followers}</h2>
+      </div>
+      <div className="col-md-12">
+      <p>{this.state.topTracks.name}, {this.state.topTracks.album}</p>
       </div>
     </div>
     )
