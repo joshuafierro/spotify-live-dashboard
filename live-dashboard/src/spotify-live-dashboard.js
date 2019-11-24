@@ -13,6 +13,17 @@ class LiveDash extends Component {
     }
   }
 
+  renderLogIn() {
+    return(
+      <div className="top-push">
+        { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
+        <a href="http://localhost:8888">
+          <button className='btn btn-outline-spot'>Go to Spotify</button>
+          </a>
+      </div>
+    )
+  }
+
   getTopArtitsts(){
     spotifyWebApi.getMyTopArtists().then((response)=>{
       if(response){
