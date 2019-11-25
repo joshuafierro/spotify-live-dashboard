@@ -63,8 +63,8 @@ getNowPlaying(){
 
 renderDash() {
     return(
-    <div className='row top-push info animated fadeIn'>
-      <div className='col-md-4'>
+    <div className='row info animated fadeIn'>
+      {/* <div className='col-md-4'>
         <h4><span className='header'>{this.state.nowPlaying.user } is listening to:</span></h4>
         <h6><span className='title'>{this.state.nowPlaying.song }</span></h6> by 
         <h6><span className='title2'>{this.state.nowPlaying.artist }</span></h6>
@@ -72,7 +72,7 @@ renderDash() {
       </div>
         <div className="col-md-8">
           <img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/>
-        </div>
+        </div> */}
         <LiveDash/>
     </div>
     )

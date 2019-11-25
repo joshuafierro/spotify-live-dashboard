@@ -10,7 +10,7 @@ class LiveDash extends Component {
     super();
     this.state ={
     topArtists: { name: '', images: '', followers: ''},
-    topTracks: {name: '', album: ''}
+    topTracks: []
     
     }
   }
@@ -40,11 +40,10 @@ class LiveDash extends Component {
           })
         }
       }
-      console.log(response);
+      // console.log(response);
       let i = 0;
       for(i; i < 10; i ++) {
         console.log(response.items[i].name);
-        console.log(response.items[i].followers.total);
       }
       
     }).catch((error) => {
@@ -54,40 +53,47 @@ class LiveDash extends Component {
 
   getTopTracks(){
     spotifyWebApi.getMyTopTracks().then((response) => {
-        if(response){
-          let i =0;
-          for(i; i < 10; i ++){ 
+        if(response.items){
           this.setState({
-            topTracks: {
-              name: response.items[0].name,
-              // images:response.items[0].images[0].url,
-              album: response.items[0].album.name,
-            }
+            topTracks: [
+              response.items
+            ]
           })
-            console.log(response.items[i].name);
-            // console.log(response.items[i].artists);
-            // console.log(response.items[i].album.name);
-          }
+          console.log(this.state.topTracks) 
+          return(
+            this.state.topTracks
+          )
+          
       }
     })
   }
 
-  render() {
+  componentDidMount(){
+    this.getTopArtitsts();
+    this.getTopTracks();
+  }
 
+  render() {
+    // need to fix this block of code
+    const tracks = this.state.topTracks.map((track, key) =>
+    <div>
+      <h1>Your Top Artists</h1>
+    <h3 key={key.id}>{track[key].name}</h3>
+    </div>
+  );
     return(
-    <div className="row top-push">
+    <div className="row">
       <div className="col-md-12">
         <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
         <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button>
       </div>
       {!this.state.getTopArtitsts}
-      <div className="col-md-12">
+      <div className="col-md-6">
         <img className="artistProfile" alt="artist profile" src={this.state.topArtists.images}/>
         <h2>{this.state.topArtists.name}</h2>
-        <h2>{this.state.topArtists.followers}</h2>
       </div>
-      <div className="col-md-12">
-      <p>{this.state.topTracks.name}, {this.state.topTracks.album}</p>
+      <div className="col-md-6">
+      <span>{tracks}</span>
       </div>
     </div>
     )
