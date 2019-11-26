@@ -73,6 +73,7 @@ renderDash() {
         <div className="col-md-8">
           <img className='album-cover' src={this.state.nowPlaying.albumCover} alt='album cover'/>
         </div> */}
+        <h1 className="title">Spotify User Analytics</h1>
         <LiveDash/>
     </div>
     )

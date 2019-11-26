@@ -23,14 +23,15 @@ info, h1{
 
 .title2{
   font-size: 1.25rem;
-  opacity: .5;
+  /* opacity: .5; */
   text-decoration: underline;
   text-decoration-color: #1DB954;
 }
 
 .header{
   font-size: 1rem;
-  /* background-color: #17a2b8; */
+  font-weight: 900;
+  padding: 2%;
 }
 
 button{
@@ -49,9 +50,9 @@ button{
   border:2px solid #1DB954;
 }
 
-/* .top-push{
-  margin-top:2%;
-} */
+.section-push{
+  margin:2%;
+}
 
 .btn-outline-spot{
   border: 2px solid #1DB954;
@@ -66,7 +67,7 @@ button{
 }
 
 .artistProfile{
-  width: 25%;
+  width: 50%;
   border: 2px solid #1DB954;
 }
 
@@ -76,4 +77,10 @@ button{
 
 .isPremium{
   border: solid 2px gold;
+}
+
+.userProfilePic{
+  width: 50%;
+  border:4px solid #1DB954;
+  border-radius: 50%;
 }
