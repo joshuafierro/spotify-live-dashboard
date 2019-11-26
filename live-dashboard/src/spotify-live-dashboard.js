@@ -75,11 +75,14 @@ class LiveDash extends Component {
 
   render() {
     // need to fix this block of code
-    const tracks = this.state.topTracks.map((track, key) =>
-    <div>
-      <h1>Your Top Tracks</h1>
-    <h3 key={key.id}>{track[key].name}</h3>
+    const tracks = this.state.topTracks.map((track) =>
+    track.map((song) => 
+      <div>
+      {console.log(track)}
+      <span key={song}>{song.name}</span>
+    
     </div>
+    )
   );
     return(
     <div className="row">
@@ -89,10 +92,12 @@ class LiveDash extends Component {
       </div>
       {!this.state.getTopArtitsts}
       <div className="col-md-6">
+      <h1>Your Top Artists</h1>
         <img className="artistProfile" alt="artist profile" src={this.state.topArtists.images}/>
         <h2>{this.state.topArtists.name}</h2>
       </div>
       <div className="col-md-6">
+      <h1>Your Top Tracks</h1>
       <span>{tracks}</span>
       </div>
     </div>
