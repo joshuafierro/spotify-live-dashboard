@@ -40,12 +40,6 @@ class LiveDash extends Component {
           })
         }
       }
-      // console.log(response);
-      let i = 0;
-      for(i; i < 10; i ++) {
-        console.log(response.items[i].name);
-      }
-      
     }).catch((error) => {
       console.log(error);
     })
@@ -59,7 +53,6 @@ class LiveDash extends Component {
               response.items
             ]
           })
-          console.log(this.state.topTracks) 
           return(
             this.state.topTracks
           )
@@ -77,11 +70,7 @@ class LiveDash extends Component {
     // need to fix this block of code
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
-      <div>
-      {console.log(track)}
-      <span key={song}>{song.name}</span>
-    
-    </div>
+      <li key={song}>{song.name}</li>
     )
   );
     return(
@@ -98,7 +87,7 @@ class LiveDash extends Component {
       </div>
       <div className="col-md-6">
       <h1>Your Top Tracks</h1>
-      <span>{tracks}</span>
+      <ol>{tracks}</ol>
       </div>
     </div>
     )
