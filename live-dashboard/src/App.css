@@ -65,6 +65,10 @@ button{
 }
 
 .artistProfile{
-  width: 15%;
+  width: 25%;
   border: 2px solid #1DB954;
+}
+
+.center {
+  text-align: center !important;
 }

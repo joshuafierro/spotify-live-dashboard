@@ -9,7 +9,7 @@ class LiveDash extends Component {
   constructor(){
     super();
     this.state ={
-    topArtists: { name: '', images: '', followers: ''},
+    topArtists: [],
     topTracks: []
     
     }
@@ -29,18 +29,13 @@ class LiveDash extends Component {
   getTopArtitsts(){
     spotifyWebApi.getMyTopArtists().then((response)=>{
       if(response){
-        let i =0
-        for(i; i<10; i ++){
           this.setState({
-            topArtists: {
-              name: response.items[0].name,
-              images:response.items[0].images[0].url,
-              followers: response.items[0].followers.total
-            }
+            topArtists: [
+              response.items
+            ]
           })
         }
-      }
-    }).catch((error) => {
+      }).catch((error) => {
       console.log(error);
     })
   }
@@ -67,7 +62,15 @@ class LiveDash extends Component {
   }
 
   render() {
-    // need to fix this block of code
+    const artists = this.state.topArtists.map((artist) => 
+      artist.map((artistProfile) =>
+      <li>
+        <img className="artistProfile" alt="artist profile" src={artistProfile.images[0].url}/> 
+        <p>{artistProfile.name}</p>
+      </li>
+      )
+    );
+
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
       <li key={song}>{song.name}</li>
@@ -75,15 +78,15 @@ class LiveDash extends Component {
   );
     return(
     <div className="row">
-      <div className="col-md-12">
+      <div className="col-md-12 center">
+      <h1 className="title">Spotify User Analytics</h1>
         <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
         <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button>
       </div>
       {!this.state.getTopArtitsts}
       <div className="col-md-6">
       <h1>Your Top Artists</h1>
-        <img className="artistProfile" alt="artist profile" src={this.state.topArtists.images}/>
-        <h2>{this.state.topArtists.name}</h2>
+        <ol>{artists}</ol>
       </div>
       <div className="col-md-6">
       <h1>Your Top Tracks</h1>
