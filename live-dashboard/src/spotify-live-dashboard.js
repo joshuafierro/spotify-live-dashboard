@@ -63,7 +63,7 @@ class LiveDash extends Component {
   render() {
     const artists = this.state.topArtists.map((artist) => 
       artist.map((artistProfile) =>
-      <li className="header">
+      <li>
         <img className="artistProfile" alt="artist profile" src={artistProfile.images[0].url}/> 
         <p>{artistProfile.name}</p>
       </li>
@@ -72,7 +72,7 @@ class LiveDash extends Component {
 
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
-      <li key={song} className="header">
+      <li>
        <img className="artistProfile" alt="artist profile" src={song.album.images[0].url}/> 
         <p>{song.name}</p>
       </li>
@@ -85,16 +85,15 @@ class LiveDash extends Component {
         <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button> */}
       </div>
       <div className="col-md-4">
-      <UserProfile/>
-      </div>
-      {!this.state.getTopArtitsts}
-      <div className="col-md-4">
-      <h3 className="title2">Your Top Artists</h3>
-        <ol>{artists}</ol>
+        <UserProfile/>
       </div>
       <div className="col-md-4">
-      <h3 className="title2">Your Top Tracks</h3>
-      <ol>{tracks}</ol>
+        <h3 className="title2">Your Top Artists</h3>
+        <ol className="header">{artists}</ol>
+      </div>
+      <div className="col-md-4">
+        <h3 className="title2">Your Top Tracks</h3>
+        <ol className="header">{tracks}</ol>
       </div>
     </div>
     )

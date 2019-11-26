@@ -34,7 +34,6 @@ class UserProfile extends Component {
 
     componentDidMount(){
         this.getUserProfile();
-        // let premium = this.state.user.isPremium === 'premium'? 'isPremium': '';
     }
 
     render(){
