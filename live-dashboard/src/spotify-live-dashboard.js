@@ -73,23 +73,26 @@ class LiveDash extends Component {
 
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
-      <li key={song}>{song.name}</li>
+      <li key={song}>
+       <img className="artistProfile" alt="artist profile" src={song.album.images[0].url}/> 
+        <p>{song.name}</p>
+      </li>
     )
   );
     return(
     <div className="row">
-      <div className="col-md-12 center">
+      <div className="col-md-12">
       <h1 className="title">Spotify User Analytics</h1>
-        <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
-        <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button>
+        {/* <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
+        <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button> */}
       </div>
       {!this.state.getTopArtitsts}
       <div className="col-md-6">
-      <h1>Your Top Artists</h1>
+      <h3 className="title2">Your Top Artists</h3>
         <ol>{artists}</ol>
       </div>
       <div className="col-md-6">
-      <h1>Your Top Tracks</h1>
+      <h3 className="title2">Your Top Tracks</h3>
       <ol>{tracks}</ol>
       </div>
     </div>
