@@ -1,7 +1,6 @@
-/*spotify dashboard api*/
 import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js';
-// import axios from 'axios';
+import UserProfile from './userProfile';
 
 const spotifyWebApi = new Spotify();
 
@@ -83,6 +82,7 @@ class LiveDash extends Component {
     <div className="row">
       <div className="col-md-12">
       <h1 className="title">Spotify User Analytics</h1>
+      <UserProfile/>
         {/* <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
         <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button> */}
       </div>

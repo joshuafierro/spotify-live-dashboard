@@ -73,3 +73,7 @@ button{
 .center {
   text-align: center !important;
 }
+
+.isPremium{
+  border: solid 2px gold;
+}
