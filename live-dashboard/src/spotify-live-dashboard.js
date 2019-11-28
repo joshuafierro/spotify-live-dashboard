@@ -63,7 +63,7 @@ class LiveDash extends Component {
   render() {
     const artists = this.state.topArtists.map((artist) => 
       artist.map((artistProfile) =>
-      <li>
+      <li key={artistProfile.id}>
         <img className="artistProfile" alt="artist profile" src={artistProfile.images[0].url}/> 
         <p>{artistProfile.name}</p>
       </li>
@@ -72,7 +72,7 @@ class LiveDash extends Component {
 
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
-      <li>
+      <li key={song.id}>
        <img className="artistProfile" alt="artist profile" src={song.album.images[0].url}/> 
         <p>{song.name}</p>
       </li>

@@ -21,7 +21,7 @@ class UserProfile extends Component {
                 this.setState({
                     user:{
                         name: response.display_name,
-                        profilePic: response.images,
+                        profilePic: response.images[0].url,
                         isPremium: response.product,
                         followerCount: response.followers.total
                     }
@@ -37,21 +37,20 @@ class UserProfile extends Component {
     }
 
     render(){
-       
-        if(this.state.user.profilePic.images === null || this.state.user.profilePic.images === undefined || this.state.user.profilePic.images === ''){
+        if(this.state.user.profilePic.images === null || this.state.user.profilePic.images === undefined){
             return(
-                <div className="col-md-6 section-push">
+                <div className="col-md-6">
                     <img className="userProfilePic" alt="user profile" src={"https://semantic-ui.com/images/avatar/large/joe.jpg"} />
                     <p className="header">
                         {this.state.user.name} <br/>
-                        followers: {this.state.user.followerCount + 37292}
+                        followers: {this.state.user.followerCount}
                     </p>
                 </div>
             )
         }else{
             return(
                 <div>
-                <img alt="user profile" src={this.state.user.profilePic.images[0].url} />
+                <img className="userProfilePic" alt="user profile" src={this.state.user.profilePic} />
                 <h2>{this.state.user.name}</h2>
                 <p className="header">followers: {this.state.user.followerCount}</p>
                 
