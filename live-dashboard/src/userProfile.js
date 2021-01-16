@@ -17,14 +17,15 @@ class UserProfile extends Component {
     }
 
     getUserProfile(){
-        spotifyWebApi.getMe().then((response) =>{
+        spotifyWebApi.getMe()
+        .then((response) =>{
             if(response){
                 this.setState({
                     user:{
-                        name: response.display_name,
-                        profilePic: response.images[0].url,
+                        name: response.id,
+                        followerCount: response.followers.total,
                         isPremium: response.product,
-                        followerCount: response.followers.total
+                        profilePic: response.images,
                     }
                 })
             }
@@ -38,33 +39,17 @@ class UserProfile extends Component {
     }
 
     render(){
-        if(this.state.user.profilePic.images === null || this.state.user.profilePic.images === undefined){
             return(
-                <section>
-                <h1 className="title">Spotify User Analytics</h1>
-                <div className="col-md-6">
-                    <img className="userProfilePic" alt="user profile" src={"https://semantic-ui.com/images/avatar/large/joe.jpg"} />
-                    <p className="header">
-                        {this.state.user.name} <br/>
-                        followers: {this.state.user.followerCount}
-                    </p>
-                    <NowPlayingDash/>
-                </div>
-                </section>
-            )
-        }else{
-            return(
-            <section>
-                <h1 className="title">Spotify User Analytics</h1>
-                <img className="userProfilePic" alt="user profile" src={this.state.user.profilePic} />
-                <h2>{this.state.user.name}</h2>
+            <section className="col-sm-12">
+                <h2 className="title">Spotify Analytics <br/> for&nbsp;
+                <span className={this.state.user.isPremium ? 'isPremiumName' : ''}>{this.state.user.name}</span>
+                </h2>
+                <img className={this.state.user.isPremium ? 'isPremium' : 'userProfilePic'} alt="user profile" src={this.state.user.profilePic.url ? this.state.user.profilePic.url : 'https://semantic-ui.com/images/avatar/large/joe.jpg'} />
                 <p className="header">followers: {this.state.user.followerCount}</p>
                 <NowPlayingDash/>
             </section>
             )
         }
-        
-    }
 }
 
 export default UserProfile;

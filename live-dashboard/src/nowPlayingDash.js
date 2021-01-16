@@ -16,6 +16,7 @@ getNowPlaying(){
     spotifyWebApi.getMyCurrentPlaybackState()
       .then((response) => {
         if (response){
+          console.log(response);
         this.setState({
           nowPlaying: {
               song: response.item.name,
@@ -27,6 +28,10 @@ getNowPlaying(){
       }}).catch((error) => {
           console.log('an error occurred ' + error);
       });
+  }
+
+  componentDidMount(){
+    this.getNowPlaying();
   }
 
   render(){
