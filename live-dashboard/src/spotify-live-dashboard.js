@@ -14,17 +14,6 @@ class LiveDash extends Component {
     }
   }
 
-  renderLogIn() {
-    return(
-      <div className="top-push">
-        { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
-        <a href="http://localhost:8888">
-          <button className='btn btn-outline-spot'>Go to Spotify</button>
-          </a>
-      </div>
-    )
-  }
-
   getTopArtitsts(){
     spotifyWebApi.getMyTopArtists().then((response)=>{
       if(response){
@@ -80,10 +69,6 @@ class LiveDash extends Component {
   );
     return(
     <div className="row section-push">
-      <div className="col-md-12">
-        {/* <button className="btn btn-outline-spot" onClick={() => this.getTopArtitsts()}>get top artists</button>
-        <button className="btn btn-outline-spot" onClick={() => this.getTopTracks()}>get top tracks</button> */}
-      </div>
       <div className="col-md-4">
         <UserProfile/>
       </div>
