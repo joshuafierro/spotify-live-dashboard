@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
 import LiveDash from './spotify-live-dashboard';
+import GroovyDoodle from '../src/GroovyDoodle.png';
+import SelfieDoodle from '../src/SelfieDoodle.png';
 
 const spotifyWebApi = new Spotify();
 
@@ -21,11 +23,19 @@ class Logon extends Component {
     
     renderLogIn() {
         return(
-          <div className="top-push col-md-12 logon">
-            { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
+          <div className="row logon">
+            <div className="col-md-4">
+              <img className="logonGraphics" src={GroovyDoodle} alt='album cover'/>
+            </div>
+            <div className="col-md-4">
+            { this.state.loggedOut && <h1 className="title">Click below to Authorize Live Dashboard</h1>}
             <a href="http://localhost:8888/login">
               <button className='btn btn-outline-spot'>Authorize Spotify</button>
-              </a>
+            </a>
+            </div>
+            <div className="col-md-4">
+              <img className="logonGraphics" src={SelfieDoodle} alt='album cover'/>
+            </div>
           </div>
         )
       }

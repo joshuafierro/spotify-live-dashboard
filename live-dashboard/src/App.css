@@ -16,6 +16,11 @@ info, h1{
 
 .logon{
   text-align: center;
+  margin-top: 15%;
+}
+
+.logonGraphics{
+  width: auto;
 }
 
 .title{
