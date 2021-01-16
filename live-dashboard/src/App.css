@@ -3,6 +3,7 @@ body{
   background-color:black;
   color:white;
   overflow-x: hidden;
+  background-image: url('./darkness.png');
 }
 
 info, h1{
