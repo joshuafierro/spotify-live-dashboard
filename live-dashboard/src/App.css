@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 body{
   background-color:black;
   color:white;
   overflow-x: hidden;
+  background-image: url('./darkness.png');
 }
 
 info, h1{
@@ -12,6 +14,19 @@ info, h1{
 .App {
   /* text-align: center; */
   margin: 5%;
+}
+
+.logon{
+  text-align: center;
+  margin-top: 15%;
+}
+
+.logonGraphics{
+  width: auto;
+}
+
+.notPlayingGraphic{
+  width: 100%;
 }
 
 .title{
@@ -99,3 +114,33 @@ button{
   object-fit: fill;
   border-radius: 50%;
 }
+
+.verified{
+  fill:gold !important;
+  width: 5%;
+}
+
+.analysis-list{
+  margin-top: 10% !important;
+  width: 100%;
+  color: white;
+  list-style: none;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: x-large;
+}
+
+.value, .label{
+  color: white !important; 
+  display: flex;
+  justify-content: left;
+  margin: 0 !important;
+
+}
+
+a {
+  color: white !important;
+}
+
+/* .carousel-control-next-icon {
+  background-color: #1DB954;
+} */
