@@ -21,10 +21,10 @@ class Logon extends Component {
     
     renderLogIn() {
         return(
-          <div className="top-push">
+          <div className="top-push col-md-12 logon">
             { this.state.loggedOut && <h1>Click below to Authorize Live Dashboard</h1>}
-            <a href="http://localhost:8888">
-              <button className='btn btn-outline-spot'>Go to Spotify</button>
+            <a href="http://localhost:8888/login">
+              <button className='btn btn-outline-spot'>Authorize Spotify</button>
               </a>
           </div>
         )
