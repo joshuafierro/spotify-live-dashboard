@@ -121,11 +121,24 @@ button{
 }
 
 .analysis-list{
+  margin-top: 10% !important;
   width: 100%;
   color: white;
   list-style: none;
   font-family: 'Ubuntu', sans-serif !important;
   font-size: x-large;
+}
+
+.value, .label{
+  color: white !important; 
+  display: flex;
+  justify-content: left;
+  margin: 0 !important;
+
+}
+
+a {
+  color: white !important;
 }
 
 /* .carousel-control-next-icon {

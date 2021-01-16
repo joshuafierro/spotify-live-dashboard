@@ -73,11 +73,11 @@ class LiveDash extends Component {
         <UserProfile/>
       </div>
       <div className="col-md-4">
-        <h3 className="title2">Your Top Artists</h3>
+        <h3 className="title">Your Top Artists</h3>
         <ol className="header">{artists}</ol>
       </div>
       <div className="col-md-4">
-        <h3 className="title2">Your Top Tracks</h3>
+        <h3 className="title">Your Top Tracks</h3>
         <ol className="header">{tracks}</ol>
       </div>
     </div>
