@@ -9,7 +9,9 @@ class NowPlayingDash extends Component {
 constructor(){
     super();
     this.state = {
-            nowPlaying: { song: '', albumCover: '', artist: '', user:''}
+            nowPlaying: { song: '', albumCover: '', artist: '', user:'', id:''},
+            analysis:{acousticness: '', danceability:'', energy:'', instrumentalness: '', 
+            liveness: '', loudness:'', speechiness: '', tempo:'', valence:''},
     }
 }
 
@@ -17,18 +19,39 @@ getNowPlaying(){
     spotifyWebApi.getMyCurrentPlaybackState()
       .then((response) => {
         if (response){
-          console.log(response);
+          console.log(response.item);
         this.setState({
           nowPlaying: {
               song: response.item.name,
               albumCover: response.item.album.images[0].url,
               artist: response.item.artists[0].name,
-              user: response.device.name
+              user: response.device.name,
+              id: response.item.id,
             }
         })
+        this.getAudioFeaturesForTrack();
       }}).catch((error) => {
           console.log('an error occurred ' + error);
       });
+  }
+
+  getAudioFeaturesForTrack(){
+    spotifyWebApi.getAudioFeaturesForTrack(this.state.nowPlaying.id).then((response) =>{
+      this.setState({
+        analysis:{
+          acousticness: response.acousticness,
+          danceability: response.danceability,
+          energy: response.energy,
+          instrumentalness: response.instrumentalness, 
+          liveness: response.liveness,
+          loudness: response.loudness,
+          speechiness: response.speechiness,
+          tempo: response.tempo,
+          valence: response.valence,
+        }
+      })
+      console.log(this.state.analysis);
+    });
   }
 
   componentDidMount(){

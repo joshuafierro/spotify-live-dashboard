@@ -113,3 +113,8 @@ button{
   object-fit: fill;
   border-radius: 50%;
 }
+
+.verified{
+  fill:gold !important;
+  width: 5%;
+}
