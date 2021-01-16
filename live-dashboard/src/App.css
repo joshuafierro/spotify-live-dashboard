@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 body{
   background-color:black;
   color:white;
@@ -46,7 +46,7 @@ button{
 }
 
 .album-cover{
-  width:100%;
+  width:75%;
   border-collapse: separate;
   border-spacing: 25px;
   border:2px solid #1DB954;
@@ -78,7 +78,17 @@ button{
 }
 
 .isPremium{
-  border: solid 2px gold;
+  width: 150px;
+  height: 150px;
+  border: solid 4px gold;
+  object-fit: fill;
+  border-radius: 50%;
+}
+
+.isPremiumName{
+  color: gold;
+  font-family: Lato, sans-serif;
+  letter-spacing: 3px;
 }
 
 .userProfilePic{
