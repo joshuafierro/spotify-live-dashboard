@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 body{
   background-color:black;
   color:white;
@@ -118,3 +119,15 @@ button{
   fill:gold !important;
   width: 5%;
 }
+
+.analysis-list{
+  width: 100%;
+  color: white;
+  list-style: none;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: x-large;
+}
+
+/* .carousel-control-next-icon {
+  background-color: #1DB954;
+} */
