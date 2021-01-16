@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NowPlayingDash from './nowPlayingDash';
+import Logon from './logon';
 
 class App extends Component {
   
@@ -10,7 +10,7 @@ class App extends Component {
     //resulting in a 429 error
       return(
         <div className="App">
-        <NowPlayingDash/>
+        <Logon/>
         </div>
       )
     }

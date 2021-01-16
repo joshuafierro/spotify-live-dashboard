@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Spotify from 'spotify-web-api-js';
+import NowPlayingDash from './nowPlayingDash';
 
 const spotifyWebApi = new Spotify();
 class UserProfile extends Component {
@@ -39,22 +40,27 @@ class UserProfile extends Component {
     render(){
         if(this.state.user.profilePic.images === null || this.state.user.profilePic.images === undefined){
             return(
+                <section>
+                <h1 className="title">Spotify User Analytics</h1>
                 <div className="col-md-6">
                     <img className="userProfilePic" alt="user profile" src={"https://semantic-ui.com/images/avatar/large/joe.jpg"} />
                     <p className="header">
                         {this.state.user.name} <br/>
                         followers: {this.state.user.followerCount}
                     </p>
+                    <NowPlayingDash/>
                 </div>
+                </section>
             )
         }else{
             return(
-                <div>
+            <section>
+                <h1 className="title">Spotify User Analytics</h1>
                 <img className="userProfilePic" alt="user profile" src={this.state.user.profilePic} />
                 <h2>{this.state.user.name}</h2>
                 <p className="header">followers: {this.state.user.followerCount}</p>
-                
-            </div>
+                <NowPlayingDash/>
+            </section>
             )
         }
         
