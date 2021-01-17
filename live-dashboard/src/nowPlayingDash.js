@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
-import ReaedingSideDoodle from './ReadingSideDoodle.png'
+import ReaedingSideDoodle from './graphics/ReadingSideDoodle.png'
 
 const spotifyWebApi = new Spotify();
 

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
 import LiveDash from './spotify-live-dashboard';
-import GroovyDoodle from '../src/GroovyDoodle.png';
-import FloatDoodle from '../src/FloatDoodle.png';
-import DancingDoodle from '../src/DancingDoodle.png';
+import FloatDoodle from '../src/graphics/FloatDoodle.png';
+import DancingDoodle from '../src/graphics/DancingDoodle.png';
 
 const spotifyWebApi = new Spotify();
 
