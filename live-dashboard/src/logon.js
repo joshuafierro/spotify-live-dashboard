@@ -3,7 +3,8 @@ import './App.css';
 import Spotify from 'spotify-web-api-js';
 import LiveDash from './spotify-live-dashboard';
 import GroovyDoodle from '../src/GroovyDoodle.png';
-import SelfieDoodle from '../src/SelfieDoodle.png';
+import FloatDoodle from '../src/FloatDoodle.png';
+import DancingDoodle from '../src/DancingDoodle.png';
 
 const spotifyWebApi = new Spotify();
 
@@ -25,16 +26,16 @@ class Logon extends Component {
         return(
           <div className="row logon">
             <div className="col-md-4">
-              <img className="logonGraphics" src={GroovyDoodle} alt='album cover'/>
+              <img className="logonGraphics" src={DancingDoodle} alt='album cover'/>
             </div>
             <div className="col-md-4">
             { this.state.loggedOut && <h1 className="title">Click below to Authorize Live Dashboard</h1>}
             <a href="http://localhost:8888/login">
-              <button className='btn btn-outline-spot'>Authorize Spotify</button>
+              <button className='btn-lg btn-outline-spot'>Authorize Spotify</button>
             </a>
             </div>
             <div className="col-md-4">
-              <img className="logonGraphics" src={SelfieDoodle} alt='album cover'/>
+              <img className="logonGraphics" src={FloatDoodle} alt='album cover'/>
             </div>
           </div>
         )

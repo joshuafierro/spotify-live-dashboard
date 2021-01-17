@@ -14,6 +14,7 @@ info, h1{
 .App {
   /* text-align: center; */
   margin: 5%;
+  overflow: hidden;
 }
 
 .logon{
@@ -22,7 +23,7 @@ info, h1{
 }
 
 .logonGraphics{
-  width: auto;
+  width: 100%;
 }
 
 .notPlayingGraphic{
