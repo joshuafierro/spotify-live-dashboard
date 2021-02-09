@@ -81,7 +81,7 @@ getNowPlaying(){
             {/* <img className='album-cover animated fadeIn' src={this.state.nowPlaying.albumCover} alt='album cover'/> */}
             <button className='btn btn-outline-spot' onClick={ () => this.getNowPlaying()}>Check Now Playing</button>
             <a href="#demo" data-toggle="collapse"><h3 className="btn btn-outline-spot">Click for Analysis of current song</h3></a>
-            <div id="demo" class="collapse">
+            <div id="demo" className="collapse">
             <ul className="analysis-list ui statistic">
                     <span className="title label">acousticness: </span><span className="value">{this.state.analysis.acousticness}%</span> <br/>
                     <span className="title label">danceability: </span><span className="value">{this.state.analysis.danceability}%</span> <br/>
