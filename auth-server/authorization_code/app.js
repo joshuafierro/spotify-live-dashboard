@@ -13,8 +13,8 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = ''; // Your client id
-var client_secret = ''; // Your secret
+var client_id = process.env.client_id; // Your client id
+var client_secret = process.env.client_secret; // Your secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
@@ -143,5 +143,5 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-console.log(`Listening on 8888`);
-app.listen(8888);
+console.log(`Listening on ${process.env.PORT}`);
+app.listen(process.env.PORT);
