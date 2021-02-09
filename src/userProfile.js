@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Spotify from 'spotify-web-api-js';
 import NowPlayingDash from './nowPlayingDash';
-import verified from './correct.svg';
+import verified from './assets/correct.svg';
 
 const spotifyWebApi = new Spotify();
 class UserProfile extends Component {

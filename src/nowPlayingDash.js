@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
-import ReaedingSideDoodle from './ReadingSideDoodle.png'
+import ReadingSideDoodle from './assets/ReadingSideDoodle.png'
 
 const spotifyWebApi = new Spotify();
 
@@ -63,7 +63,7 @@ getNowPlaying(){
       <div className='row info animated fadeIn'>
         <div className='col-md-12'>
         <h4><span className='header'>No songs playing right now.</span></h4>
-        <img className="notPlayingGraphic info animated fadeIn" src={ReaedingSideDoodle} alt=""/>
+        <img className="notPlayingGraphic info animated fadeIn" src={ReadingSideDoodle} alt=""/>
         <button className='btn btn-outline-spot' onClick={ () => this.getNowPlaying()}>Check Now Playing</button>
         </div>
       </div>
