@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Spotify from 'spotify-web-api-js';
 import NowPlayingDash from './nowPlayingDash';
-import verified from './correct.svg';
+import verified from './assets/correct.svg';
 
 const spotifyWebApi = new Spotify();
 class UserProfile extends Component {
@@ -43,7 +43,7 @@ class UserProfile extends Component {
             return(
             <section className="col-sm-12">
                 <h2 className="title">Spotify Analytics <br/> for&nbsp;
-            <span className={this.state.user.isPremium ? 'isPremiumName' : ''}>{this.state.user.name} <img className="verified"src={verified}/></span>
+            <span className={this.state.user.isPremium ? 'isPremiumName' : ''}>{this.state.user.name} <img className="verified"src={verified} alt=""/></span>
                 </h2>
                 <img className={this.state.user.isPremium ? 'isPremium' : 'userProfilePic'} alt="user profile" src={this.state.user.profilePic.url ? this.state.user.profilePic.url : 'https://semantic-ui.com/images/avatar/large/joe.jpg'} />
                 <p className="header">followers: {this.state.user.followerCount}</p>
