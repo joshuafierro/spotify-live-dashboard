@@ -29,7 +29,7 @@ class Logon extends Component {
             </div>
             <div className="col-md-4">
             { this.state.loggedOut && <h1 className="title">Click below to Authorize Live Dashboard</h1>}
-            <a href="http://localhost:8888/login">
+            <a href="https://project-v.herokuapp.com/login">
               <button className='btn btn-outline-spot'>Authorize Spotify</button>
             </a>
             </div>
