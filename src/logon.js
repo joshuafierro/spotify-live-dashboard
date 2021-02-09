@@ -44,6 +44,7 @@ class Logon extends Component {
         let hashParams = {};
         let e, r = /([^&;=]+)=?([^&;]*)/g,
             q = window.location.hash.substring(1);
+            // weird behavior with single '=' vs '==='
         while ( e = r.exec(q)) {
            hashParams[e[1]] = decodeURIComponent(e[2]);
         }

@@ -63,7 +63,7 @@ getNowPlaying(){
       <div className='row info animated fadeIn'>
         <div className='col-md-12'>
         <h4><span className='header'>No songs playing right now.</span></h4>
-        <img className="notPlayingGraphic info animated fadeIn" src={ReaedingSideDoodle} />
+        <img className="notPlayingGraphic info animated fadeIn" src={ReaedingSideDoodle} alt=""/>
         <button className='btn btn-outline-spot' onClick={ () => this.getNowPlaying()}>Check Now Playing</button>
         </div>
       </div>
