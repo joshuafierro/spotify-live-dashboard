@@ -144,3 +144,10 @@ a {
 /* .carousel-control-next-icon {
   background-color: #1DB954;
 } */
+
+@media only screen and (max-width: 770px) {
+  .logonGraphics{
+    width: 100% !important;
+    overflow: hidden;
+  }
+  }
