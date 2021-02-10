@@ -4,6 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn start`
+
+Runs the app in production, launching both the client side and back end server.
+
+### `yarn dev`
+
+Runs the app in "development mode" where only the client side app runs.
+
+### `node auth-server/authorization_code/app.js`
+
+Runs the node server by itself. Use this command in development.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
