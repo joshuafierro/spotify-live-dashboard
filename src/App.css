@@ -18,11 +18,11 @@ info, h1{
 
 .logon{
   text-align: center;
-  margin-top: 15%;
 }
 
 .logonGraphics{
-  width: auto;
+  width: 40%;
+  overflow: hidden;
 }
 
 .notPlayingGraphic{
@@ -85,12 +85,27 @@ button{
 }
 
 .artistProfile{
-  width: 50%;
+  width: 150px;
+  height: 150px !important;
+  /* object-fit: cover; */
   border: 2px solid #1DB954;
+  overflow: hidden;
+  background-position: center;
+  background-size: contain;
+  z-index: -100;
 }
 
 .center {
   text-align: center !important;
+}
+
+.centerTitles {
+  position: absolute;
+  color: #1DB954;
+  font-weight: bolder;
+  font-size: 18px;
+  z-index: 1000 !important;
+  background-color: black;
 }
 
 .isPremium{
@@ -159,8 +174,13 @@ a.nav-link{
   .logonGraphics{
     width: 100% !important;
     overflow: hidden;
+    z-index: -1;
   }
   .nav{
     margin-top: 15%;
+  }
+
+  .btn-outline-spot{
+    width: 100% !important;
   }
   }
