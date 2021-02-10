@@ -52,19 +52,21 @@ class LiveDash extends Component {
   render() {
     const artists = this.state.topArtists.map((artist) => 
       artist.map((artistProfile) =>
-      <li key={artistProfile.id}>
-        <img className="artistProfile animated fadeIn ui image large fluid" alt="artist profile" src={artistProfile.images[0].url}/> 
-        <p>{artistProfile.name}</p>
-      </li>
+      <span key={artistProfile.id}>
+        <div className="artistProfile animated fadeIn" alt="artist profile" style={{backgroundImage: `url(${artistProfile.images[0].url})`, display:"inline-block"}}>
+        <h3 className="centerTitles">{artistProfile.name}</h3>
+        </div>
+      </span>
       )
     );
 
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
-      <li key={song.id}>
-       <img className="artistProfile animated fadeIn ui image large fluid" alt="artist profile" src={song.album.images[0].url}/> 
-        <p>{song.name}</p>
-      </li>
+      <span key={song.id}>
+       <div className="artistProfile animated fadeIn" alt="artist profile" style={{backgroundImage: `url(${song.album.images[0].url})`, display:"inline-block"}}> 
+        <h3 className="centerTitles">{song.name}</h3>
+       </div>
+      </span>
     )
   );
     return(
@@ -72,22 +74,22 @@ class LiveDash extends Component {
       <div className="col-md-4">
         <UserProfile/>
       </div>
-      <div className="col-md-6">
+      <div className="col-md-8">
       <ul className="nav nav-tabs navbar-dark">
         <li className="nav-item active"><a data-toggle="tab" href="#home" className="nav-link">Your Top Artists</a></li>
         <li className="nav-item"><a data-toggle="tab" href="#menu1" className="nav-link">Your Top Tracks</a></li>
       </ul>
       <div className="tab-content">
       <div id="home" className="tab-pane container fade in active">
-        <div className="col-md-6">
+        <div className="row">
           {/* <h3 className="title">Your Top Artists</h3> */}
-          <ol className="header">{artists}</ol>
+          <span className="header">{artists}</span>
         </div>
       </div>
       <div id="menu1" className="tab-pane container fade">
-        <div className="col-md-6">
+        <div className="row">
           {/* <h3 className="title">Your Top Tracks</h3> */}
-          <ol className="header">{tracks}</ol>
+          <span className="header">{tracks}</span>
         </div>
       </div>
     </div>
