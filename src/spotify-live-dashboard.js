@@ -53,7 +53,7 @@ class LiveDash extends Component {
     const artists = this.state.topArtists.map((artist) => 
       artist.map((artistProfile) =>
       <li key={artistProfile.id}>
-        <img className="artistProfile animated fadeIn" alt="artist profile" src={artistProfile.images[0].url}/> 
+        <img className="artistProfile animated fadeIn ui image large fluid" alt="artist profile" src={artistProfile.images[0].url}/> 
         <p>{artistProfile.name}</p>
       </li>
       )
@@ -62,7 +62,7 @@ class LiveDash extends Component {
     const tracks = this.state.topTracks.map((track) =>
     track.map((song) => 
       <li key={song.id}>
-       <img className="artistProfile animated fadeIn" alt="artist profile" src={song.album.images[0].url}/> 
+       <img className="artistProfile animated fadeIn ui image large fluid" alt="artist profile" src={song.album.images[0].url}/> 
         <p>{song.name}</p>
       </li>
     )
@@ -72,14 +72,26 @@ class LiveDash extends Component {
       <div className="col-md-4">
         <UserProfile/>
       </div>
-      <div className="col-md-4">
-        <h3 className="title">Your Top Artists</h3>
-        <ol className="header">{artists}</ol>
+      <div className="col-md-6">
+      <ul className="nav nav-tabs navbar-dark">
+        <li className="nav-item active"><a data-toggle="tab" href="#home" className="nav-link">Your Top Artists</a></li>
+        <li className="nav-item"><a data-toggle="tab" href="#menu1" className="nav-link">Your Top Tracks</a></li>
+      </ul>
+      <div className="tab-content">
+      <div id="home" className="tab-pane container fade in active">
+        <div className="col-md-6">
+          {/* <h3 className="title">Your Top Artists</h3> */}
+          <ol className="header">{artists}</ol>
+        </div>
       </div>
-      <div className="col-md-4">
-        <h3 className="title">Your Top Tracks</h3>
-        <ol className="header">{tracks}</ol>
+      <div id="menu1" className="tab-pane container fade">
+        <div className="col-md-6">
+          {/* <h3 className="title">Your Top Tracks</h3> */}
+          <ol className="header">{tracks}</ol>
+        </div>
       </div>
+    </div>
+    </div>
     </div>
     )
   }
