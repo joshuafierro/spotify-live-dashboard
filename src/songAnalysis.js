@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
-import ReadingSideDoodle from './assets/ReadingSideDoodle.png'
+import LayingDoodle from './assets/LayingDoodle.png'
 
 const spotifyWebApi = new Spotify();
 
-class NowPlayingDash extends Component {
+class songAnalysis extends Component {
 constructor(){
     super();
     this.state = {
@@ -62,25 +62,27 @@ getNowPlaying(){
       return(
       <div className='row info animated fadeIn'>
         <div className='col-md-12'>
-        <h4><span className='header'>No songs playing right now.</span></h4>
-        <img className="notPlayingGraphic info animated fadeIn" src={ReadingSideDoodle} alt=""/>
-        <button className='btn btn-outline-spot' onClick={ () => this.getNowPlaying()}>Check Now Playing</button>
+        <h4><span className='header'>Wainting to analyze...</span></h4>
+        <img className="noAnalysis info animated fadeIn" src={LayingDoodle} alt=""/>
         </div>
       </div>
       )
     } else{
       return(
         <div className='row info animated fadeIn'>
-          <div className='col-md-12'>
-          <h4><span className='header'>Now Playing:</span></h4>
-          <h6><span className='title2'>{this.state.nowPlaying.song }</span> by&nbsp; 
-          <span className='title2'>{this.state.nowPlaying.artist }</span></h6>
-          <img className='d-block album-cover animated fadeIn' src={this.state.nowPlaying.albumCover} alt='album cover'/>
-        </div>
+          <div className="col-md-12">
+            <ul className="analysis-list ui statistic">
+                    <span className="title label">acousticness: </span><span className="value">{this.state.analysis.acousticness}%</span> <br/>
+                    <span className="title label">danceability: </span><span className="value">{this.state.analysis.danceability}%</span> <br/>
+                    <span className="title label">energy: </span><span className="value">{this.state.analysis.energy}%</span> <br/>
+                    <span className="title label">instrumentalness: </span><span className="value">{this.state.analysis.instrumentalness}%</span> <br/>
+                    <span className="title label">tempo in BPM: </span><span className="value">{this.state.analysis.tempo}</span> <br/>
+                    <span className="title label">valence: </span><span className="value">{this.state.analysis.valence}%</span> <br/>
+              </ul>
+            </div>
       </div>
           )
       }
   }
 }
-
-export default NowPlayingDash;
+export default songAnalysis;
