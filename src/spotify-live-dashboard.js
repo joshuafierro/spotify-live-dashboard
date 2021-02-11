@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spotify from 'spotify-web-api-js';
 import UserProfile from './userProfile';
+import SongAnalysis from './songAnalysis';
 
 const spotifyWebApi = new Spotify();
 
@@ -78,6 +79,7 @@ class LiveDash extends Component {
       <ul className="nav nav-tabs navbar-dark">
         <li className="nav-item active"><a data-toggle="tab" href="#home" className="nav-link">Your Top Artists</a></li>
         <li className="nav-item"><a data-toggle="tab" href="#menu1" className="nav-link">Your Top Tracks</a></li>
+        <li className="nav-item"><a data-toggle="tab" href="#menu2" className="nav-link">Song Analysis</a></li>
       </ul>
       <div className="tab-content">
       <div id="home" className="tab-pane container fade in active">
@@ -90,6 +92,11 @@ class LiveDash extends Component {
         <div className="row">
           {/* <h3 className="title">Your Top Tracks</h3> */}
           <span className="header">{tracks}</span>
+        </div>
+      </div>
+      <div id="menu2" className="tab-pane container fade">
+        <div className="row">
+          <SongAnalysis/>
         </div>
       </div>
     </div>

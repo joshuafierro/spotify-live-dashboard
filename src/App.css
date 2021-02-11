@@ -29,6 +29,10 @@ info, h1{
   width: 100%;
 }
 
+.noAnalysis{
+  width: 50%;
+}
+
 .title{
   font-size: 1.25rem;
   font-weight: bold;
