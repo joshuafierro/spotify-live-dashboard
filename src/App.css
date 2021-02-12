@@ -76,6 +76,10 @@ button{
   margin:2%;
 }
 
+.login.btn-outline-spot{
+  width: auto;
+}
+
 .btn-outline-spot{
   width: 100%;
   border: 2px solid #1DB954;
