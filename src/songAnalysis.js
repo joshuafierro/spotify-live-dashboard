@@ -106,7 +106,7 @@ getNowPlaying(){
               <HorizontalBar data={data} height={300} width={400}/>
             </div>
             <div className="col-md-12">
-              <button className='btn btn-outline-spot' style={{width:"75%"}}onClick={ () => this.getNowPlaying()}>analyze</button>
+              <button className='btn btn-outline-spot' onClick={ () => this.getNowPlaying()}>analyze</button>
             </div>
       </div>
           )
