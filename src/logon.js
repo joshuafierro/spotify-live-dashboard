@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
 import LiveDash from './spotify-live-dashboard';
-import GroovyDoodle from '../src/assets/GroovyDoodle.png';
 import SelfieDoodle from '../src/assets/SelfieDoodle.png';
 
 const spotifyWebApi = new Spotify();
@@ -26,7 +25,6 @@ class Logon extends Component {
           <div className="row logon">
             <div className="col-md-12" style={{marginTop:"auto"}}>
             { this.state.loggedOut && <h1 className="title">Click below to Authorize Live Dashboard</h1>}
-              {/* <img className="logonGraphics" src={GroovyDoodle} alt='album cover'/> */}
               <img className="logonGraphics" src={SelfieDoodle} alt='album cover'/>
             </div>
             <div className="col-md-12">
