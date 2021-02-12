@@ -29,7 +29,7 @@ class Logon extends Component {
             </div>
             <div className="col-md-12">
             <a href="https://project-v.herokuapp.com/login">
-              <button className='btn btn-outline-spot btn-lg'>Authorize Spotify</button>
+              <button className='login btn btn-outline-spot btn-lg'>Authorize Spotify</button>
             </a>
             </div>
           </div>

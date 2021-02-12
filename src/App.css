@@ -76,6 +76,10 @@ button{
   margin:2%;
 }
 
+.login.btn-outline-spot{
+  width: auto;
+}
+
 .btn-outline-spot{
   width: 100%;
   border: 2px solid #1DB954;
@@ -183,12 +187,32 @@ a.nav-link{
   .btn-outline-spot{
     width: 100% !important;
   }
+  .followers{
+    text-align: center;
+  }
   .logonGraphics{
     width: 100% !important;
     overflow: hidden;
     z-index: -1;
   }
+  .isPremium{
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .isPremiumName{
+    text-align: center;
+  }
+  .main.title{
+    text-align: center;
+  }
   .nav{
     margin-top: 15%;
   }
+  .userProfilePic{
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
 }
