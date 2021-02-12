@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Spotify from 'spotify-web-api-js';
-import LayingDoodle from './assets/LayingDoodle.png'
+import LayingDoodle from './assets/LayingDoodle.png';
+import {HorizontalBar} from 'react-chartjs-2';
+import { defaults } from 'chart.js';
 
 const spotifyWebApi = new Spotify();
 
@@ -9,7 +11,7 @@ class songAnalysis extends Component {
 constructor(){
     super();
     this.state = {
-            nowPlaying: { song: '', albumCover: '', artist: '', user:'', id:''},
+            nowPlaying: { song: '', artist: '', id:''},
             analysis:{acousticness: '', danceability:'', energy:'', instrumentalness: '', 
             loudness:'', speechiness: '', tempo:'', valence:''},
     }
@@ -19,13 +21,10 @@ getNowPlaying(){
     spotifyWebApi.getMyCurrentPlaybackState()
       .then((response) => {
         if (response){
-          console.log(response.item);
         this.setState({
           nowPlaying: {
               song: response.item.name,
-              albumCover: response.item.album.images[0].url,
               artist: response.item.artists[0].name,
-              user: response.device.name,
               id: response.item.id,
             }
         })
@@ -49,20 +48,53 @@ getNowPlaying(){
           valence: (response.valence * 100).toFixed(1),
         }
       })
-      console.log(this.state.analysis);
     });
   }
 
-  componentDidUpdate(){
+  componentDidMount(){
     this.getNowPlaying();
   }
 
   render(){
+    defaults.global.legend.display = false;
+    defaults.global.responsive = true;
+    // defaults.global.startAngle = 0.5 * Math.PI;
+    const data ={
+        datasets:[
+          { 
+            // label: "Song Analysis",
+            data: [
+              this.state.analysis.danceability, 
+              this.state.analysis.energy, 
+              this.state.analysis.instrumentalness,
+              this.state.analysis.acousticness, 
+              this.state.analysis.valence
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.7)',
+              'rgba(54, 162, 235, 0.7)',
+              'rgba(255, 206, 86, 0.7)',
+              'rgba(75, 192, 192, 0.7)',
+              'rgba(153, 102, 255, 0.7)',
+              'rgba(255, 159, 64, 0.7)',
+            ],
+          },
+        ],
+        labels: [
+          'danceability',
+          'energy',
+          'instrumentalness',
+          // 'speechiness',
+          'acousticness',
+          'valence',
+        ],
+      }
     if(this.state.nowPlaying.song === ''){
       return(
       <div className='row info animated fadeIn'>
         <div className='col-md-12'>
         <h4><span className='header'>Wainting to analyze...</span></h4>
+        <button className='btn btn-outline-spot' style={{width:"75%"}}onClick={ () => this.getNowPlaying()}>analyze</button>
         <img className="noAnalysis info animated fadeIn" src={LayingDoodle} alt=""/>
         </div>
       </div>
@@ -71,14 +103,10 @@ getNowPlaying(){
       return(
         <div className='row info animated fadeIn'>
           <div className="col-md-12">
-            <ul className="analysis-list ui statistic">
-                    <span className="title label">acousticness: </span><span className="value">{this.state.analysis.acousticness}%</span> <br/>
-                    <span className="title label">danceability: </span><span className="value">{this.state.analysis.danceability}%</span> <br/>
-                    <span className="title label">energy: </span><span className="value">{this.state.analysis.energy}%</span> <br/>
-                    <span className="title label">instrumentalness: </span><span className="value">{this.state.analysis.instrumentalness}%</span> <br/>
-                    <span className="title label">tempo in BPM: </span><span className="value">{this.state.analysis.tempo}</span> <br/>
-                    <span className="title label">valence: </span><span className="value">{this.state.analysis.valence}%</span> <br/>
-              </ul>
+              <HorizontalBar data={data} height={300} width={400}/>
+            </div>
+            <div className="col-md-12">
+              <button className='btn btn-outline-spot' style={{width:"75%"}}onClick={ () => this.getNowPlaying()}>analyze</button>
             </div>
       </div>
           )
