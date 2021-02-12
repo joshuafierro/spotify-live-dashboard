@@ -42,11 +42,11 @@ class UserProfile extends Component {
     render(){
             return(
             <section className="col-sm-12">
-                <h2 className="title">Spotify Analytics <br/> for&nbsp;
+                <h2 className="main title">Spotify Analytics <br/> for&nbsp;
             <span className={this.state.user.isPremium ? 'isPremiumName' : ''}>{this.state.user.name}</span>
                 </h2>
                 <img className={this.state.user.isPremium ? 'isPremium' : 'userProfilePic'} alt="user profile" src={this.state.user.profilePic.url ? this.state.user.profilePic.url : AbstractDesign} />
-                <p className="header">followers: {this.state.user.followerCount}</p>
+                <p className="header followers">followers: {this.state.user.followerCount}</p>
                 <NowPlayingDash/>
             </section>
             )
