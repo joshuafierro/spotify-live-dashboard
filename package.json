@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.9.4",
-    "react": "^16.6.3",
+    "react": "^16.14.0",
     "react-chartjs-2": "^2.11.1",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.14.0",
     "react-scripts": "2.1.1",
     "spotify-web-api-js": "^1.1.1"
   },
