@@ -16,7 +16,6 @@ class songAnalysis extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.nowPlaying.id !== this.props.nowPlaying.id) {
-      console.log("updating...");
       this.props.getNowPlaying();
     }
   }
@@ -74,7 +73,13 @@ class songAnalysis extends Component {
       return (
         <div className="row info animated fadeIn">
           <div className="col-md-12">
-            <HorizontalBar data={data} height={300} width={400} />
+            <h1 className="title">
+              Populairty:{" "}
+              {this.props.nowPlaying.popularity >= 50
+                ? "Very popular"
+                : "Not as popular"}
+            </h1>
+            <HorizontalBar data={data} height={200} width={400} />
           </div>
           <div className="col-md-12" />
         </div>
