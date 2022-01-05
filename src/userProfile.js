@@ -33,20 +33,30 @@ const UserProfile = (props) => {
   }, []);
   return (
     <section
-      className="col-sm-12 col-md-12"
+      className="row"
       style={{ marginTop: "10%", marginLeft: "25%", marginRight: "25%" }}
     >
-      <img
-        className={user.isPremium ? "isPremium" : "userProfilePic"}
-        alt="user profile"
-        src={user.profilePic.url ? user.profilePic.url : AbstractDesign}
-      />
-      <h5 className="main title">
-        Spotify Analytics <br /> for&nbsp;
-        <span className={user.isPremium ? "isPremiumName" : ""}>
-          {user.name}
-        </span>
-      </h5>
+      <div className="col-sm-12 col-md-12">
+        <img
+          className={user.isPremium ? "isPremium" : "userProfilePic"}
+          alt="user profile"
+          src={user.profilePic.url ? user.profilePic.url : AbstractDesign}
+        />
+        <h5 className="main title">
+          Spotify Analytics <br /> for&nbsp;
+          <span className={user.isPremium ? "isPremiumName" : ""}>
+            {user.name}
+          </span>
+        </h5>
+        <button className="btn btn-outline-spot btn-md">
+          <a
+            href="https://accounts.spotify.com/en/logout"
+            style={{ color: "white", fontWeight: "bold" }}
+          >
+            logout
+          </a>
+        </button>
+      </div>
     </section>
   );
 };

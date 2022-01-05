@@ -3,12 +3,9 @@ import "./App.css";
 import ReadingSideDoodle from "./assets/ReadingSideDoodle.png";
 
 const NowPlayingDash = (props) => {
-  useEffect(
-    () => {
-      props.getNowPlaying();
-    },
-    [props.nowPlaying]
-  );
+  useEffect(() => {
+    props.getNowPlaying();
+  }, []);
   if (props.nowPlaying.song === "") {
     return (
       <div className="row info animated fadeIn">

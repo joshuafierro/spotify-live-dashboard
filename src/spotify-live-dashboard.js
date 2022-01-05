@@ -13,6 +13,7 @@ const LiveDash = () => {
     song: "",
     artist: "",
     albumCover: "",
+    popularity: "",
     id: "",
     user: "",
   });
@@ -36,6 +37,7 @@ const LiveDash = () => {
             song: response.item.name,
             artist: response.item.artists[0].name,
             albumCover: response.item.album.images[0].url,
+            popularity: response.item.popularity,
             id: response.item.id,
             user: response.device.name,
           });
@@ -130,7 +132,7 @@ const LiveDash = () => {
         <ul className="nav nav-tabs navbar-dark">
           <li className="nav-item active">
             <a data-toggle="tab" href="#home" className="nav-link active">
-              About
+              Profile
             </a>
           </li>
           <li className="nav-item active">
