@@ -8,8 +8,8 @@ const NowPlayingDash = (props) => {
   }, []);
   if (props.nowPlaying.song === "") {
     return (
-      <div className="row info animated fadeIn">
-        <div className="col-md-12">
+      <div className="info animated fadeIn">
+        <div>
           <h4>
             <span className="header">No songs playing right now.</span>
           </h4>
@@ -29,8 +29,8 @@ const NowPlayingDash = (props) => {
     );
   } else {
     return (
-      <div className="row info animated fadeIn">
-        <div className="col-md-12">
+      <div className="info animated fadeIn">
+        <div>
           <h4>
             <span className="header">Now Playing:</span>
           </h4>

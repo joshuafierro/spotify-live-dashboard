@@ -22,7 +22,7 @@ class Logon extends Component {
 
   renderLogIn() {
     return (
-      <div className="row logon">
+      <div className="logon">
         <div className="col-md-12" style={{ marginTop: "auto" }}>
           {this.state.loggedOut && (
             <h1 className="title">Click below to Authorize Live Dashboard</h1>
@@ -30,7 +30,7 @@ class Logon extends Component {
           <img className="logonGraphics" src={SelfieDoodle} alt="album cover" />
         </div>
         <div className="col-md-12">
-          <a href="https://project-v.herokuapp.com/login">
+          <a href="http://localhost:8888/login">
             <button className="login btn btn-outline-spot btn-lg">
               Authorize Spotify
             </button>
@@ -53,7 +53,18 @@ class Logon extends Component {
   }
 
   render() {
-    return <div>{this.state.loggedIn ? <LiveDash /> : this.renderLogIn()}</div>;
+    return (
+      <div>
+        {this.state.loggedIn ? (
+          <LiveDash
+            loggedIn={this.state.loggedIn}
+            renderLogIn={this.renderLogIn}
+          />
+        ) : (
+          this.renderLogIn()
+        )}
+      </div>
+    );
   }
 }
 
