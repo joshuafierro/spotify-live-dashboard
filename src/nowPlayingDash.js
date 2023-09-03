@@ -14,7 +14,7 @@ const NowPlayingDash = (props) => {
             <span className="header">No songs playing right now.</span>
           </h4>
           <img
-            className="notPlayingGraphic info animated fadeIn"
+            className="not-playing-graphic info animated fadeIn"
             src={ReadingSideDoodle}
             alt=""
           />

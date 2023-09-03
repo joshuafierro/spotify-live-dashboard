@@ -14,7 +14,6 @@ const UserProfile = (props) => {
     props.spotifyWebApi
       .getMe()
       .then((response) => {
-        console.log(response);
         if (response) {
           setUser({
             name: response.id,
@@ -33,19 +32,16 @@ const UserProfile = (props) => {
     getUserProfile();
   }, []);
   return (
-    <section className="">
-      <div
-        className=""
-        style={{ marginTop: "15.2%", marginLeft: "25%", marginRight: "25%" }}
-      >
+    <section>
+      <div className="profile-view">
         <img
-          className={user.isPremium ? "isPremium" : "userProfilePic"}
+          className={user.isPremium ? "is-premium" : "user-profile-pic"}
           alt="user profile"
           src={user.profilePic.url ? user.profilePic.url : AbstractDesign}
         />
         <h5 className="title">
           Spotify Analytics <br /> for&nbsp;
-          <span className={user.isPremium ? "isPremiumName" : ""}>
+          <span className={user.isPremium ? "is-premium-name" : ""}>
             {user.name}
           </span>
         </h5>

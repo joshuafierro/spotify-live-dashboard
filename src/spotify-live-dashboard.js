@@ -110,14 +110,14 @@ const LiveDash = (props) => {
     artist.map((artistProfile) => (
       <span key={artistProfile.id}>
         <div
-          className="artistProfile animated fadeIn"
+          className="artist-profile animated fadeIn"
           alt="artist profile"
           style={{
             backgroundImage: `url(${artistProfile.images[0].url})`,
             display: "inline-block",
           }}
         >
-          <h3 className="centerTitles">{artistProfile.name}</h3>
+          <h3 className="cente-titles">{artistProfile.name}</h3>
         </div>
       </span>
     ))
@@ -127,14 +127,14 @@ const LiveDash = (props) => {
     track.map((song) => (
       <span key={song.id}>
         <div
-          className="artistProfile animated fadeIn"
+          className="artist-profile animated fadeIn"
           alt="artist profile"
           style={{
             backgroundImage: `url(${song.album.images[0].url})`,
             display: "inline-block",
           }}
         >
-          <h3 className="centerTitles">{song.name}</h3>
+          <h3 className="cente-titles">{song.name}</h3>
         </div>
       </span>
     ))
