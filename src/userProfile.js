@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import AbstractDesign from "./assets/abstract.jpg";
 
 const UserProfile = (props) => {
@@ -32,30 +31,23 @@ const UserProfile = (props) => {
     getUserProfile();
   }, []);
   return (
-    <section
-      className="row"
-      style={{ marginTop: "10%", marginLeft: "25%", marginRight: "25%" }}
-    >
-      <div className="col-sm-12 col-md-12">
+    <section>
+      <div className="profile-view">
         <img
-          className={user.isPremium ? "isPremium" : "userProfilePic"}
+          className={user.isPremium ? "is-premium" : "user-profile-pic"}
           alt="user profile"
           src={user.profilePic.url ? user.profilePic.url : AbstractDesign}
         />
-        <h5 className="main title">
+        <h5 className="title">
           Spotify Analytics <br /> for&nbsp;
-          <span className={user.isPremium ? "isPremiumName" : ""}>
+          <span className={user.isPremium ? "is-premium-name" : ""}>
             {user.name}
           </span>
         </h5>
-        <button className="btn btn-outline-spot btn-md">
-          <a
-            href="https://accounts.spotify.com/en/logout"
-            style={{ color: "white", fontWeight: "bold" }}
-          >
-            logout
-          </a>
-        </button>
+
+        <a href="https://accounts.spotify.com/en/logout">
+          <button className="btn btn-logout">logout</button>
+        </a>
       </div>
     </section>
   );

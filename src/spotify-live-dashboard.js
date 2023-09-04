@@ -6,7 +6,7 @@ import NowPlayingDash from "./nowPlayingDash";
 
 const spotifyWebApi = new Spotify();
 
-const LiveDash = () => {
+const LiveDash = (props) => {
   const [topArtists, setTopArtists] = useState([]);
   const [topTracks, setTopTracks] = useState([]);
   const [nowPlaying, setNowPlaying] = useState({
@@ -16,6 +16,9 @@ const LiveDash = () => {
     popularity: "",
     id: "",
     user: "",
+    progress_ms: "",
+    duration_ms: "",
+    isPlaying: false,
   });
   const [analysis, setAnalysis] = useState({
     acousticness: "",
@@ -26,6 +29,16 @@ const LiveDash = () => {
     speechiness: "",
     tempo: "",
     valence: "",
+  });
+
+  useEffect(() => {
+    if (nowPlaying.id && nowPlaying.isPlaying) {
+      const interval = setInterval(() => {
+        getNowPlaying();
+      }, nowPlaying.duration_ms - nowPlaying.progress_ms);
+
+      return () => clearInterval(interval);
+    }
   });
 
   const getNowPlaying = () => {
@@ -40,6 +53,9 @@ const LiveDash = () => {
             popularity: response.item.popularity,
             id: response.item.id,
             user: response.device.name,
+            progress_ms: response.progress_ms,
+            duration_ms: response.item.duration_ms,
+            isPlaying: response.is_playing,
           });
           getAudioFeaturesForTrack();
         }
@@ -94,14 +110,14 @@ const LiveDash = () => {
     artist.map((artistProfile) => (
       <span key={artistProfile.id}>
         <div
-          className="artistProfile animated fadeIn"
+          className="artist-profile animated fadeIn"
           alt="artist profile"
           style={{
             backgroundImage: `url(${artistProfile.images[0].url})`,
             display: "inline-block",
           }}
         >
-          <h3 className="centerTitles">{artistProfile.name}</h3>
+          <h3 className="cente-titles">{artistProfile.name}</h3>
         </div>
       </span>
     ))
@@ -111,24 +127,25 @@ const LiveDash = () => {
     track.map((song) => (
       <span key={song.id}>
         <div
-          className="artistProfile animated fadeIn"
+          className="artist-profile animated fadeIn"
           alt="artist profile"
           style={{
             backgroundImage: `url(${song.album.images[0].url})`,
             display: "inline-block",
           }}
         >
-          <h3 className="centerTitles">{song.name}</h3>
+          <h3 className="cente-titles">{song.name}</h3>
         </div>
       </span>
     ))
   );
-  return (
-    <div className="row section-push">
-      <div className="col-md-4">
+
+  return props.loggedIn ? (
+    <div className="grid-container section-push">
+      <div className="grid-item grid-item-1">
         <NowPlayingDash nowPlaying={nowPlaying} getNowPlaying={getNowPlaying} />
       </div>
-      <div className="col-md-8">
+      <div className="grid-item grid-item-2">
         <ul className="nav nav-tabs navbar-dark">
           <li className="nav-item active">
             <a data-toggle="tab" href="#home" className="nav-link active">
@@ -152,23 +169,23 @@ const LiveDash = () => {
           </li>
         </ul>
         <div className="tab-content">
-          <div id="home" className="tab-pane container fade show active">
-            <div className="row">
+          <div id="home" className="tab-pane fade show active">
+            <div className="">
               <UserProfile spotifyWebApi={spotifyWebApi} />
             </div>
           </div>
-          <div id="top_artist" className="tab-pane container fade">
-            <div className="row">
-              <span className="header">{artists}</span>
+          <div id="top_artist" className="tab-pane fade">
+            <div className="">
+              <span className="">{artists}</span>
             </div>
           </div>
-          <div id="top_tracks" className="tab-pane container fade">
-            <div className="row">
-              <span className="header">{tracks}</span>
+          <div id="top_tracks" className="tab-pane fade">
+            <div className="">
+              <span className="">{tracks}</span>
             </div>
           </div>
-          <div id="song_analysis" className="tab-pane container fade">
-            <div className="row">
+          <div id="song_analysis" className="tab-pane fade">
+            <div className="">
               <SongAnalysis
                 nowPlaying={nowPlaying}
                 getNowPlaying={getNowPlaying}
@@ -179,6 +196,8 @@ const LiveDash = () => {
         </div>
       </div>
     </div>
+  ) : (
+    props.renderLogIn()
   );
 };
 export default LiveDash;

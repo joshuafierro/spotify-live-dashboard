@@ -56,23 +56,21 @@ class songAnalysis extends Component {
     };
     if (this.props.nowPlaying.song === "") {
       return (
-        <div className="row info animated fadeIn">
-          <div className="col-md-12">
-            <h4>
-              <span className="header">Waiting to analyze...</span>
-            </h4>
+        <div className="info animated fadeIn">
+          <div>
             <img
-              className="noAnalysis info animated fadeIn"
+              className="no-analysis info animated fadeIn"
               src={LayingDoodle}
               alt=""
             />
+            <h4 className="center">Waiting to analyze...</h4>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="row info animated fadeIn">
-          <div className="col-md-12">
+        <div className="info animated fadeIn">
+          <div>
             <h1 className="title">
               Populairty:{" "}
               {this.props.nowPlaying.popularity >= 50
@@ -81,7 +79,7 @@ class songAnalysis extends Component {
             </h1>
             <HorizontalBar data={data} height={200} width={400} />
           </div>
-          <div className="col-md-12" />
+          <div className="" />
         </div>
       );
     }
