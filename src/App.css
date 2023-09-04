@@ -15,10 +15,11 @@ body {
   grid-template-columns: 35% 65%;
   grid-template-rows: 25% 25% 25% !important;
   overflow: hidden;
+  gap: 10px;
 }
 
 .grid-item {
-  margin: auto;
+  padding: 0% 8%;
 }
 
 info,
@@ -51,7 +52,7 @@ h1 {
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
   text-decoration-color: #1db954;
@@ -60,14 +61,14 @@ h1 {
 }
 
 .title2 {
-  font-size: 1rem;
+  font-size: 12px;
   /* opacity: .5; */
   text-decoration: underline;
   text-decoration-color: #1db954;
 }
 
 .header {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 900;
 }
 
@@ -251,8 +252,8 @@ a.item {
 @media screen and (max-width: 835px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 25% 25% 25%;
+    grid-template-columns: 100% !important;
+    grid-template-rows: 50% 50% !important;
     /* grid-gap: 10px; */
     overflow: hidden;
   }
@@ -276,6 +277,21 @@ a.item {
 
   .is-premium,
   .user-profile-pic {
-    margin: auto 25%;
+    margin: auto;
+  }
+  .logon-graphics {
+    width: 100%;
+    margin: 30% auto;
+    overflow: hidden;
+  }
+
+  .grid-item {
+    padding: initial;
+  }
+}
+
+@media screen and (-webkit-max-device-pixel-ratio: 835px) {
+  .grid-item-2 {
+    margin-top: 50% !important;
   }
 }

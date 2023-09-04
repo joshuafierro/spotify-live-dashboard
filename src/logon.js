@@ -27,7 +27,11 @@ class Logon extends Component {
           {this.state.loggedOut && (
             <h1 className="title">Click below to Authorize Live Dashboard</h1>
           )}
-          <img className="logonGraphics" src={SelfieDoodle} alt="album cover" />
+          <img
+            className="logon-graphics"
+            src={SelfieDoodle}
+            alt="album cover"
+          />
         </div>
         <div className="col-md-12">
           <a href="http://localhost:8888/login">

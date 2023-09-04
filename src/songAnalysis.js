@@ -58,14 +58,12 @@ class songAnalysis extends Component {
       return (
         <div className="info animated fadeIn">
           <div>
-            <h4>
-              <span>Waiting to analyze...</span>
-            </h4>
             <img
               className="no-analysis info animated fadeIn"
               src={LayingDoodle}
               alt=""
             />
+            <h4 className="center">Waiting to analyze...</h4>
           </div>
         </div>
       );

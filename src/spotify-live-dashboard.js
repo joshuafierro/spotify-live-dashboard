@@ -142,10 +142,10 @@ const LiveDash = (props) => {
 
   return props.loggedIn ? (
     <div className="grid-container section-push">
-      <div className="grid-item-1">
+      <div className="grid-item grid-item-1">
         <NowPlayingDash nowPlaying={nowPlaying} getNowPlaying={getNowPlaying} />
       </div>
-      <div className="grid-item-2">
+      <div className="grid-item grid-item-2">
         <ul className="nav nav-tabs navbar-dark">
           <li className="nav-item active">
             <a data-toggle="tab" href="#home" className="nav-link active">
