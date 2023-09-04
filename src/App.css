@@ -43,6 +43,7 @@ h1 {
 
 .not-playing-graphic {
   width: 100%;
+  margin: auto 4%;
 }
 
 .no-analysis {
@@ -239,6 +240,7 @@ a.item {
 
 .nav {
   margin-bottom: 2% !important;
+  width: 91%;
 }
 
 .tab-content {
@@ -269,6 +271,10 @@ a.item {
 
   .btn-outline-spot {
     width: 100% !important;
+  }
+
+  .nav {
+    width: auto !important;
   }
 
   .tab-content {
