@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import AbstractDesign from "./assets/abstract.jpg";
 
 const UserProfile = (props) => {
@@ -45,14 +44,10 @@ const UserProfile = (props) => {
             {user.name}
           </span>
         </h5>
-        <button className="btn btn-outline-spot btn-md">
-          <a
-            href="https://accounts.spotify.com/en/logout"
-            style={{ color: "white", fontWeight: "bold" }}
-          >
-            logout
-          </a>
-        </button>
+
+        <a href="https://accounts.spotify.com/en/logout">
+          <button className="btn btn-logout">logout</button>
+        </a>
       </div>
     </section>
   );

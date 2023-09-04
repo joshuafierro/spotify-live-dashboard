@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #0f0f0f;
   color: white;
   overflow-x: hidden;
   /* background-image: url("assets/darkness.png"); */
@@ -59,6 +59,7 @@ h1 {
   text-decoration-color: #1db954;
   text-underline-offset: 10%;
   text-align: center;
+  margin: auto auto 8% auto;
 }
 
 .title2 {
@@ -74,9 +75,7 @@ h1 {
 }
 
 button {
-  margin: 30px;
-  margin-left: 0;
-  z-index: 10000;
+  margin: 4% auto;
 }
 
 .info {
@@ -86,6 +85,7 @@ button {
 
 .album-cover {
   width: 75%;
+  padding: 2%;
   border-collapse: separate;
   border-spacing: 25px;
   border: 2px solid #1db954;
@@ -108,7 +108,7 @@ button {
 
 .btn-outline-spot:hover {
   background-color: #1db954;
-  color: black;
+  color: #0f0f0f;
   transition: 0.5s;
 }
 
@@ -134,14 +134,18 @@ button {
   font-weight: bolder;
   font-size: 14px;
   z-index: 1000 !important;
-  background-color: black;
+  background-color: #0f0f0f;
   opacity: 80%;
+}
+
+.is-premium,
+.user-profile-pic {
+  margin: 2% 27% 7% 27%;
 }
 
 .is-premium {
   width: 150px;
   height: 150px;
-  margin: auto 30%;
   /* border: solid 4px gold; */
   object-fit: fill;
   border-radius: 50%;
@@ -161,7 +165,6 @@ button {
   object-fit: fill;
   border-radius: 50%;
   animation: pulse 2.5s infinite;
-  margin: auto 30%;
 }
 
 .verified {
@@ -170,7 +173,7 @@ button {
 }
 
 .profile-view {
-  margin: 15.2% 25% auto 25%;
+  margin: 8% 25% auto 25%;
 }
 
 @keyframes pulse {
@@ -245,6 +248,24 @@ a.item {
 
 .tab-content {
   margin: auto;
+}
+
+.btn-logout {
+  width: 50%;
+  margin: 4% 25%;
+  border: 2px solid #1db954;
+  color: #1db954;
+  background-color: transparent;
+}
+
+.btn-logout > a {
+  color: #1db954 !important;
+}
+
+.btn-logout:hover {
+  background-color: #1db954;
+  color: #0f0f0f !important;
+  transition: 0.5s;
 }
 
 /* .carousel-control-next-icon {

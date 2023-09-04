@@ -13,10 +13,11 @@ var cors = require("cors");
 var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 8080;
+require("dotenv").config({ path: ".env" });
 
-var client_id = process.env.client_id; // Your client id
-var client_secret = process.env.client_secret; // Your secret
-var redirect_uri = "https://project-v.herokuapp.com/callback"; // Your redirect uri
+var client_id = process.env.CLIENT_ID; // Your client id
+var client_secret = process.env.CLIENT_SECRET; // Your secret
+var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -90,7 +91,7 @@ app.get("/callback", function(req, res) {
       headers: {
         Authorization:
           "Basic " +
-          new Buffer(client_id + ":" + client_secret).toString("base64"),
+          new Buffer.from(client_id + ":" + client_secret).toString("base64"),
       },
       json: true,
     };
@@ -108,12 +109,12 @@ app.get("/callback", function(req, res) {
 
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
-          console.log(body);
+          // console.log(body);
         });
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "https://project-v.herokuapp.com/#" +
+          "http://localhost:3000/#" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -139,7 +140,7 @@ app.get("/refresh_token", function(req, res) {
     headers: {
       Authorization:
         "Basic " +
-        new Buffer(client_id + ":" + client_secret).toString("base64"),
+        new Buffer.from(client_id + ":" + client_secret).toString("base64"),
     },
     form: {
       grant_type: "refresh_token",
@@ -163,4 +164,4 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // console.log(`Listening on 8888`);
-app.listen(PORT);
+app.listen(8888);
