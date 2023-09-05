@@ -4,8 +4,8 @@
 }
 
 body {
-  background-color: #0f0f0f;
-  color: white;
+  background-color: #0f0f0f !important;
+  color: white !important;
   overflow-x: hidden;
   /* background-image: url("assets/darkness.png"); */
 }
@@ -101,7 +101,7 @@ button {
 
 .btn-outline-spot {
   width: 100%;
-  border: 2px solid #1db954;
+  border: 2px solid #1db954 !important;
   color: #1db954;
   background-color: transparent;
 }
@@ -253,7 +253,7 @@ a.item {
 .btn-logout {
   width: 50%;
   margin: 4% 25%;
-  border: 2px solid #1db954;
+  border: 2px solid #1db954 !important;
   color: #1db954;
   background-color: transparent;
 }
