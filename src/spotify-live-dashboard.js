@@ -148,11 +148,15 @@ const LiveDash = (props) => {
       <div className="grid-item grid-item-2">
         <ul className="nav nav-tabs navbar-dark">
           <li className="nav-item active">
-            <a data-toggle="tab" href="#home" className="nav-link active">
-              Profile
+            <a
+              data-toggle="tab"
+              href="#song_analysis"
+              className="nav-link active"
+            >
+              Song Analysis
             </a>
           </li>
-          <li className="nav-item active">
+          <li className="nav-item">
             <a data-toggle="tab" href="#top_artist" className="nav-link">
               Your Top Artists
             </a>
@@ -163,13 +167,13 @@ const LiveDash = (props) => {
             </a>
           </li>
           <li className="nav-item">
-            <a data-toggle="tab" href="#song_analysis" className="nav-link">
-              Song Analysis
+            <a data-toggle="tab" href="#home" className="nav-link">
+              Profile
             </a>
           </li>
         </ul>
         <div className="tab-content">
-          <div id="home" className="tab-pane fade show active">
+          <div id="home" className="tab-pane fade">
             <div className="">
               <UserProfile spotifyWebApi={spotifyWebApi} />
             </div>
@@ -184,7 +188,7 @@ const LiveDash = (props) => {
               <span className="">{tracks}</span>
             </div>
           </div>
-          <div id="song_analysis" className="tab-pane fade">
+          <div id="song_analysis" className="tab-pane fade show active">
             <div className="">
               <SongAnalysis
                 nowPlaying={nowPlaying}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import LayingDoodle from "./assets/LayingDoodle.png";
+import StatsGraphic from "./assets/graphics/stats.png";
 import { HorizontalBar } from "react-chartjs-2";
 import { defaults } from "chart.js";
 
@@ -23,6 +23,7 @@ class songAnalysis extends Component {
   render() {
     defaults.global.legend.display = false;
     defaults.global.responsive = true;
+    defaults.global.defaultFontColor = "white";
     // defaults.global.startAngle = 0.5 * Math.PI;
     const data = {
       datasets: [
@@ -60,7 +61,7 @@ class songAnalysis extends Component {
           <div>
             <img
               className="no-analysis info animated fadeIn"
-              src={LayingDoodle}
+              src={StatsGraphic}
               alt=""
             />
             <h4 className="center">Waiting to analyze...</h4>
@@ -71,7 +72,7 @@ class songAnalysis extends Component {
       return (
         <div className="info animated fadeIn">
           <div>
-            <h1 className="title">
+            <h1 className="popularity-title">
               Populairty:{" "}
               {this.props.nowPlaying.popularity >= 50
                 ? "Very popular"
