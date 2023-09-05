@@ -2,6 +2,7 @@
   font-family: "Montserrat"; /*Can be any text*/
   src: local("Montserrat"), url("/assets/Montserrat.ttf") format("truetype");
 }
+/* !important(s) are used temporarily to overwrite bootstrap styling */
 
 body {
   background-color: #0f0f0f !important;
@@ -75,7 +76,7 @@ h1 {
 }
 
 button {
-  margin: 4% auto;
+  margin: 4% auto !important;
 }
 
 .info {
