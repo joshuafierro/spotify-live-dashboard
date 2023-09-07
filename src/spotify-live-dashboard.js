@@ -3,6 +3,8 @@ import Spotify from "spotify-web-api-js";
 import UserProfile from "./userProfile";
 import SongAnalysis from "./songAnalysis";
 import NowPlayingDash from "./nowPlayingDash";
+import TopArtists from "./topArtists";
+import TopSongs from "./topSongs";
 
 const spotifyWebApi = new Spotify();
 
@@ -108,37 +110,44 @@ const LiveDash = (props) => {
 
   const artists = topArtists.map((artist) =>
     artist.map((artistProfile) => (
-      <span key={artistProfile.id}>
-        <div
-          className="artist-profile animated fadeIn"
-          alt="artist profile"
-          style={{
-            backgroundImage: `url(${artistProfile.images[0].url})`,
-            display: "inline-block",
-          }}
-        >
-          <h3 className="cente-titles">{artistProfile.name}</h3>
-        </div>
-      </span>
+      <TopArtists key={artistProfile.id} artist={artistProfile} />
     ))
   );
 
   const tracks = topTracks.map((track) =>
-    track.map((song) => (
-      <span key={song.id}>
-        <div
-          className="artist-profile animated fadeIn"
-          alt="artist profile"
-          style={{
-            backgroundImage: `url(${song.album.images[0].url})`,
-            display: "inline-block",
-          }}
-        >
-          <h3 className="cente-titles">{song.name}</h3>
-        </div>
-      </span>
-    ))
+    track.map((song) => <TopSongs key={song.id} song={song} />)
   );
+
+  const renderNavbar = () => {
+    return (
+      <ul className="nav nav-tabs navbar-dark">
+        <li className="nav-item active">
+          <a
+            data-toggle="tab"
+            href="#song_analysis"
+            className="nav-link active"
+          >
+            Song Analysis
+          </a>
+        </li>
+        <li className="nav-item">
+          <a data-toggle="tab" href="#top_artist" className="nav-link">
+            Your Top Artists
+          </a>
+        </li>
+        <li className="nav-item">
+          <a data-toggle="tab" href="#top_tracks" className="nav-link">
+            Your Top Tracks
+          </a>
+        </li>
+        <li className="nav-item">
+          <a data-toggle="tab" href="#home" className="nav-link">
+            Profile
+          </a>
+        </li>
+      </ul>
+    );
+  };
 
   return props.loggedIn ? (
     <div className="grid-container section-push">
@@ -146,50 +155,25 @@ const LiveDash = (props) => {
         <NowPlayingDash nowPlaying={nowPlaying} getNowPlaying={getNowPlaying} />
       </div>
       <div className="grid-item grid-item-2">
-        <ul className="nav nav-tabs navbar-dark">
-          <li className="nav-item active">
-            <a
-              data-toggle="tab"
-              href="#song_analysis"
-              className="nav-link active"
-            >
-              Song Analysis
-            </a>
-          </li>
-          <li className="nav-item">
-            <a data-toggle="tab" href="#top_artist" className="nav-link">
-              Your Top Artists
-            </a>
-          </li>
-          <li className="nav-item">
-            <a data-toggle="tab" href="#top_tracks" className="nav-link">
-              Your Top Tracks
-            </a>
-          </li>
-          <li className="nav-item">
-            <a data-toggle="tab" href="#home" className="nav-link">
-              Profile
-            </a>
-          </li>
-        </ul>
+        {renderNavbar()}
         <div className="tab-content">
           <div id="home" className="tab-pane fade">
-            <div className="">
+            <div>
               <UserProfile spotifyWebApi={spotifyWebApi} />
             </div>
           </div>
           <div id="top_artist" className="tab-pane fade">
-            <div className="">
-              <span className="">{artists}</span>
+            <div>
+              <span>{artists}</span>
             </div>
           </div>
           <div id="top_tracks" className="tab-pane fade">
-            <div className="">
-              <span className="">{tracks}</span>
+            <div>
+              <span>{tracks}</span>
             </div>
           </div>
           <div id="song_analysis" className="tab-pane fade show active">
-            <div className="">
+            <div>
               <SongAnalysis
                 nowPlaying={nowPlaying}
                 getNowPlaying={getNowPlaying}
