@@ -42,7 +42,6 @@ const NowPlayingDash = (props) => {
         />
         <button
           className="btn btn-outline-spot"
-          style={{ width: "75%" }}
           onClick={() => props.getNowPlaying()}
         >
           Check Now Playing

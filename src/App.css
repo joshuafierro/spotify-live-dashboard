@@ -113,7 +113,7 @@ h1 {
 }
 
 .btn-outline-spot {
-  width: 100%;
+  width: 75%;
   border: 2px solid #1db954 !important;
   color: #1db954;
   background-color: transparent;
@@ -142,14 +142,13 @@ h1 {
   text-align: center !important;
 }
 
-.cente-titles {
+.artist-song-titles {
   position: relative;
-  color: #1db954;
   font-weight: bolder;
   font-size: 14px;
   z-index: 1000 !important;
-  background-color: #0f0f0f;
-  opacity: 80%;
+  background-color: #1db954;
+  color: #0f0f0f;
 }
 
 .is-premium,
@@ -284,10 +283,6 @@ a.item {
   color: #0f0f0f !important;
   transition: 0.5s;
 }
-
-/* .carousel-control-next-icon {
-  background-color: #1DB954;
-} */
 
 @media screen and (max-width: 835px) {
   .grid-container {
