@@ -3,8 +3,13 @@ import "./App.css";
 import Spotify from "spotify-web-api-js";
 import LiveDash from "./spotify-live-dashboard";
 import SelfieDoodle from "./assets/graphics/SelfieDoodle.png";
+require("dotenv").config({ path: ".env" });
 
 const spotifyWebApi = new Spotify();
+const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
+const RESPONSE_TYPE = "token";
+const SCOPE =
+  "user-read-private user-read-email user-read-playback-state user-top-read";
 
 class Logon extends Component {
   constructor() {
@@ -36,7 +41,9 @@ class Logon extends Component {
           />
         </div>
         <div className="">
-          <a href="http://localhost:8888/login">
+          <a
+            href={`${AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&scope=${SCOPE}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}&response_type=${RESPONSE_TYPE}`}
+          >
             <button className="login btn btn-outline-spot btn-lg">
               Authorize Spotify
             </button>
