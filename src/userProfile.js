@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AbstractDesign from "./assets/abstract.jpg";
+import AbstractDesign from "./assets/graphics/OSLO-12.svg";
 
 const UserProfile = (props) => {
   const [user, setUser] = useState({

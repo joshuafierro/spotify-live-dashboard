@@ -2,12 +2,12 @@
   font-family: "Montserrat"; /*Can be any text*/
   src: local("Montserrat"), url("/assets/Montserrat.ttf") format("truetype");
 }
+/* !important(s) are used temporarily to overwrite bootstrap styling */
 
 body {
   background-color: #0f0f0f !important;
   color: white !important;
   overflow-x: hidden;
-  /* background-image: url("assets/darkness.png"); */
 }
 
 .grid-container {
@@ -19,7 +19,7 @@ body {
 }
 
 .grid-item {
-  padding: 0% 8%;
+  padding: 0%;
 }
 
 info,
@@ -28,8 +28,7 @@ h1 {
 }
 
 .App {
-  /* text-align: center; */
-  margin: 5%;
+  margin: 0 5%;
 }
 
 .logon {
@@ -42,14 +41,35 @@ h1 {
 }
 
 .not-playing-graphic {
-  width: 100%;
-  margin: auto 4%;
+  width: 50%;
+  margin: auto 25%;
+  rotate: 25deg;
 }
 
 .no-analysis {
-  width: 50%;
-  margin-right: 25%;
-  margin-left: 25%;
+  width: 40%;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.onboarding-title {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: currentcolor;
+  -webkit-text-decoration-color: #1db954;
+  text-decoration-color: #1db954;
+  text-underline-offset: 10%;
+  text-align: center;
+  margin: 4% auto;
+}
+
+.popularity-title {
+  font-size: 16px;
+  text-align: center;
+  margin: 4% auto 4% auto;
+  text-decoration: underline;
+  text-decoration-color: #1db954;
+  text-underline-offset: 10%;
 }
 
 .title {
@@ -59,27 +79,20 @@ h1 {
   text-decoration-color: #1db954;
   text-underline-offset: 10%;
   text-align: center;
-  margin: auto auto 8% auto;
+  margin: 4% auto 4% auto;
 }
 
 .title2 {
-  font-size: 12px;
   /* opacity: .5; */
   text-decoration: underline;
   text-decoration-color: #1db954;
 }
 
 .header {
-  font-size: 14px;
   font-weight: 900;
 }
 
-button {
-  margin: 4% auto;
-}
-
 .info {
-  /* padding-left: 5%; */
   margin-top: 2.5%;
 }
 
@@ -104,6 +117,7 @@ button {
   border: 2px solid #1db954 !important;
   color: #1db954;
   background-color: transparent;
+  margin: 4% auto !important;
 }
 
 .btn-outline-spot:hover {
@@ -140,7 +154,7 @@ button {
 
 .is-premium,
 .user-profile-pic {
-  margin: 2% 27% 7% 27%;
+  margin: auto 40.5%;
 }
 
 .is-premium {
@@ -161,7 +175,6 @@ button {
 .user-profile-pic {
   width: 150px;
   height: 150px;
-  /* border: 4px solid #1db954; */
   object-fit: fill;
   border-radius: 50%;
   animation: pulse 2.5s infinite;
@@ -173,7 +186,7 @@ button {
 }
 
 .profile-view {
-  margin: 8% 25% auto 25%;
+  margin: 8% auto;
 }
 
 @keyframes pulse {
@@ -221,6 +234,10 @@ button {
   margin: 0 !important;
 }
 
+.nav-tabs {
+  border-bottom: 1px solid #1db954 !important;
+}
+
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
   background-color: #1db954 !important;
@@ -243,7 +260,7 @@ a.item {
 
 .nav {
   margin-bottom: 2% !important;
-  width: 91%;
+  width: 96.5%;
 }
 
 .tab-content {
@@ -252,7 +269,7 @@ a.item {
 
 .btn-logout {
   width: 50%;
-  margin: 4% 25%;
+  margin: auto 25%;
   border: 2px solid #1db954 !important;
   color: #1db954;
   background-color: transparent;
@@ -276,13 +293,12 @@ a.item {
   .grid-container {
     display: grid;
     grid-template-columns: 100% !important;
-    grid-template-rows: 50% 50% !important;
+    grid-template-rows: auto !important;
     /* grid-gap: 10px; */
     overflow: hidden;
   }
 
-  .header,
-  .title2 {
+  .info {
     text-align: center !important;
   }
 
@@ -304,7 +320,14 @@ a.item {
 
   .is-premium,
   .user-profile-pic {
-    margin: auto;
+    margin: auto 25%;
+    width: 50%;
+    height: 50%;
+  }
+
+  .btn-logout {
+    width: 100%;
+    margin: 4% auto !important;
   }
   .logon-graphics {
     width: 100%;
@@ -315,10 +338,15 @@ a.item {
   .grid-item {
     padding: initial;
   }
+
+  .artist-profile {
+    width: 130px;
+    height: 130px !important;
+  }
 }
 
 @media screen and (-webkit-max-device-pixel-ratio: 835px) {
   .grid-item-2 {
-    margin-top: 50% !important;
+    margin-top: 10% !important;
   }
 }

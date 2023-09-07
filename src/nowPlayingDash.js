@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import ReadingSideDoodle from "./assets/ReadingSideDoodle.png";
+import HeadphonesGraphic from "./assets/graphics/headphones.png";
 
 const NowPlayingDash = (props) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const NowPlayingDash = (props) => {
         </h4>
         <img
           className="not-playing-graphic info animated fadeIn"
-          src={ReadingSideDoodle}
+          src={HeadphonesGraphic}
           alt=""
         />
         <button
